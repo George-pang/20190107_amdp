@@ -48,6 +48,7 @@ h4 {
 .main .weather .weather_live {
   position: relative;
   height: 64%;
+  overflow: hidden;
 }
 .main .weather .weather_live .time_now {
   position: absolute;
@@ -68,7 +69,6 @@ h4 {
   position: relative;
   height: 100%;
   padding-top: 36px;
-  background-color: #e3bb88;
   display: none;
 }
 .main .weather .weather_live .weather_info .icon {
@@ -114,12 +114,43 @@ h4 {
 .main .weather .weather_live .active {
   display: block;
 }
+.main .weather .weather_live .good {
+  background-image: -webkit-linear-gradient(top, #0d68bc, #72ade0);
+}
+.main .weather .weather_live .bad {
+  background-image: -webkit-linear-gradient(top, #485663, #a1b8ca);
+}
+.main .weather .weather_live .sunny {
+  background-color: #e3bb88;
+}
 .main .weather .weather_live .sunny .sun {
   position: absolute;
-  left: 40%;
+  right: 10%;
   top: 0;
   transform: translateX(-50%);
   font-size: 10rem;
+  color: #ffb948;
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+.main .weather .weather_live .rainy {
+  background-color: #b1695a;
+}
+.main .weather .weather_live .rainy .icon i {
+  position: absolute;
+}
+.main .weather .weather_live .rainy .sun {
+  position: absolute;
+  right: 10%;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 5rem;
   color: #d89864;
   -webkit-animation-name: rotate;
   animation-name: rotate;
@@ -129,6 +160,236 @@ h4 {
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
+}
+.main .weather .weather_live .rainy .cloud {
+  position: absolute;
+  right: 10%;
+  top: -1rem;
+  font-size: 10rem;
+  color: #ccc;
+}
+.main .weather .weather_live .rainy .sprinkles {
+  -webkit-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+  right: 10%;
+  margin-right: 2rem;
+  top: 100px;
+  z-index: -1;
+  -webkit-animation-name: sprinkle;
+  animation-name: sprinkle;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  color: #ccc;
+}
+.main .weather .weather_live .rainy .sprinkles:nth-of-type(4) {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+.main .weather .weather_live .rainy .sprinkles:nth-of-type(5) {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.main .weather .weather_live .rainy .sprinkles:nth-of-type(6) {
+  -webkit-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+.main .weather .weather_live .snow {
+  background-color: #644749;
+}
+.main .weather .weather_live .snow .cloud {
+  position: absolute;
+  right: 10%;
+  top: -1rem;
+  font-size: 12rem;
+  color: #ccc;
+}
+.main .weather .weather_live .snow .snowflakes {
+  position: absolute;
+  right: 10%;
+  top: 110px;
+  margin-right: 1rem;
+  z-index: -1;
+  -webkit-animation: snowflakes 3s linear infinite;
+  animation: snowflakes 3s linear infinite;
+}
+.main .weather .weather_live .snow .snowflakes .snowflake {
+  position: relative;
+  font-size: 2rem;
+  color: #fff;
+}
+.main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(1) {
+  -webkit-animation: snowflake 3.1s ease-in-out infinite;
+  animation: snowflake 3.1s ease-in-out infinite;
+}
+.main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(2) {
+  -webkit-animation: snowflake 3.1s 0.2s ease-in-out infinite reverse;
+  animation: snowflake 3.1s 0.2s ease-in-out infinite reverse;
+  top: -20px;
+}
+.main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(3) {
+  -webkit-animation: snowflake 3.1s 0.2s ease-in-out infinite;
+  animation: snowflake 3.1s 0.2s ease-in-out infinite;
+  top: 10px;
+}
+.main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(4) {
+  -webkit-animation: snowflake 3.1s 0.4s ease-in-out infinite reverse;
+  animation: snowflake 3.1s 0.4s ease-in-out infinite reverse;
+  top: -30px;
+}
+.main .weather .weather_live .cloudy {
+  background-color: #b1695a;
+}
+.main .weather .weather_live .cloudy .icon i {
+  position: absolute;
+}
+.main .weather .weather_live .cloudy .sun {
+  position: absolute;
+  right: 10%;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 5rem;
+  color: #d89864;
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+.main .weather .weather_live .cloudy .cloud {
+  position: absolute;
+  right: 10%;
+  top: -1rem;
+  font-size: 10rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.main .weather .weather_live .ray .thunder {
+  color: #333;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 40%;
+  right: 25%;
+  background: #666;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: #666 65px -15px 0 -5px, #666 25px -25px, #666 30px 10px, #666 60px 15px 0 -10px, #666 85px 5px 0 -5px;
+  animation: cloudy 5s ease-in-out infinite;
+}
+.main .weather .weather_live .ray .thunder:before {
+  content: "";
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  border-left: 0px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 38px solid yellow;
+  box-shadow: yellow -7px -32px;
+  transform: rotate(30deg);
+  transform-origin: center -50px;
+  animation: stormy_thunder 1.5s steps(1, end) infinite;
+}
+.main .weather .weather_live .ray .thunder:after {
+  content: "";
+  position: absolute;
+  top: 120px;
+  left: 64px;
+  height: 15px;
+  width: 120px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  animation: cloudy_shadow 5s ease-in-out infinite;
+}
+@keyframes cloudy {
+  50% {
+    transform: translate(-50%, -30px);
+  }
+}
+@keyframes cloudy_shadow {
+  50% {
+    transform: translate(-50%, 0) scale(0.8);
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+@keyframes stormy_thunder {
+  0% {
+    transform: rotate(30deg);
+    opacity: 1;
+  }
+  5% {
+    transform: rotate(-34deg);
+    opacity: 1;
+  }
+  10% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  15% {
+    transform: rotate(-34deg);
+    opacity: 0;
+  }
+}
+.main .weather .weather_live .overcastDay .overcast {
+  position: absolute;
+  width: 3px;
+  height: 6px;
+  top: 30%;
+  right: 25%;
+  background: #CCCCCC;
+  border-radius: 50%;
+}
+.main .weather .weather_live .overcastDay .overcast:before {
+  content: "";
+  color: #333;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 30px;
+  left: -40px;
+  background: #CCC;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: #CCC 65px -15px 0 -5px, #CCC 25px -25px, #CCC 30px 10px, #CCC 60px 15px 0 -10px, #CCC 85px 5px 0 -5px;
+  animation: cloudy 5s ease-in-out infinite;
+}
+.main .weather .weather_live .overcastDay .overcast:after {
+  content: "";
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  height: 15px;
+  width: 120px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: cloudy_shadow 5s ease-in-out infinite;
+}
+@keyframes cloudy {
+  50% {
+    transform: translate(-50%, -70%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes cloudy_shadow {
+  50% {
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    background: rgba(0, 0, 0, 0.5);
+  }
 }
 .main .weather .weather_bad {
   background: rgba(29, 51, 121, 0.5);
@@ -169,6 +430,7 @@ h4 {
 .main .statistics .statistics_report {
   height: 50%;
 }
+/***************************************************/
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotate(0deg);
@@ -187,5 +449,105 @@ h4 {
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes sprinkle {
+  from {
+    -webkit-transform: translateX(0) translateY(0) skewX(-10deg);
+    transform: translateX(0) translateY(0) skewX(-10deg);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateX(-70px) translateY(150px) skewX(-10deg);
+    transform: translateX(-70px) translateY(150px) skewX(-10deg);
+    opacity: 0;
+  }
+}
+@keyframes sprinkle {
+  from {
+    -webkit-transform: translateX(0) translateY(0) skewX(-10deg);
+    transform: translateX(0) translateY(0) skewX(-10deg);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateX(-70px) translateY(150px) skewX(-10deg);
+    transform: translateX(-70px) translateY(150px) skewX(-10deg);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes snowflakes {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateY(200px);
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+@keyframes snowflakes {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateY(200px);
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes snowflake {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  50% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes snowflake {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  50% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
