@@ -10,6 +10,7 @@
     <script src="lib/echarts.min.js"></script>
     <!-- 引入echarts vintage主题 -->
     <script src="lib/vintage.js"></script>
+    <script src="index.js"></script>
     <link rel="stylesheet" href="lib/normalize.css">
     <link rel="stylesheet" href="index.css">
 </head>
@@ -23,25 +24,14 @@
                 <p class="time_now">
                     01月07日 周一 农历十二月初二
                 </p>
-                <!-- 晴 -->
-                <div class="weather_info sunny good">
-                    <div class="icon">
+                <div class="weather_info good">
+                    <!-- 天气ICON -->
+                    <!-- 晴 -->
+                    <div class="icon sunny">
                         <i class="iconfont sun">&#xe74a;</i>
                     </div>
-                    <div class="content">
-                        <h3 class="hour" id="hour">Morning</h3>
-                        <div class="degrees" id="degrees">- 1°</div>
-                        <div class="data">
-                            <h2 class="weather_status" id="weather_status">Sunny</h2>
-                            <div>Wind: <span id="wind">东风3-4级</span></div>
-                            <div>Humidity: <span id="humidity">91%</span></div>
-                            <div>Tide: <span id="tide"></span>无潮汐</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 雨 -->
-                <div class="weather_info rainy bad active">
-                    <div class="icon">
+                    <!-- 雨 -->
+                    <div class="icon rainy active">
                         <i class="iconfont sun">&#xe74a;</i>
                         <i class="iconfont cloud">&#xe690;</i>
                         <i class="iconfont sprinkles">&#xe601; &#xe601; &#xe601; &#xe601; &#xe601;</i>
@@ -49,20 +39,8 @@
                         <i class="iconfont sprinkles">&#xe601; &#xe601; &#xe601; &#xe601; &#xe601;</i>
                         <i class="iconfont sprinkles">&#xe601; &#xe601; &#xe601; &#xe601; &#xe601;</i>
                     </div>
-                    <div class="content">
-                        <h3 class="hour" id="hour">Morning</h3>
-                        <div class="degrees" id="degrees">- 1°</div>
-                        <div class="data">
-                            <h2 class="weather_status" id="weather_status">Sunny</h2>
-                            <div>Wind: <span id="wind">东风3-4级</span></div>
-                            <div>Humidity: <span id="humidity">91%</span></div>
-                            <div>Tide: <span id="tide"></span>无潮汐</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 雪 -->
-                <div class="weather_info snow bad">
-                    <div class="icon">
+                    <!-- 雪 -->
+                    <div class="icon snow">
                         <i class="iconfont cloud">&#xe690;</i>
                         <div class="snowflakes">
                             <i class="iconfont snowflake">&#xe7ce;</i>&nbsp;
@@ -71,64 +49,29 @@
                             <i class="iconfont snowflake">&#xe7ce;</i>
                         </div>
                     </div>
-                    <div class="content">
-                        <h3 class="hour" id="hour">Morning</h3>
-                        <div class="degrees" id="degrees">- 1°</div>
-                        <div class="data">
-                            <h2 class="weather_status" id="weather_status">Sunny</h2>
-                            <div>Wind: <span id="wind">东风3-4级</span></div>
-                            <div>Humidity: <span id="humidity">91%</span></div>
-                            <div>Tide: <span id="tide"></span>无潮汐</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 多云 -->
-                <div class="weather_info cloudy good">
-                    <div class="icon">
+                    <!-- 多云 -->
+                    <div class="icon cloudy">
                         <i class="iconfont sun">&#xe74a;</i>
                         <i class="iconfont cloud">&#xe690;</i>
                     </div>
-                    <div class="content">
-                        <h3 class="hour" id="hour">Morning</h3>
-                        <div class="degrees" id="degrees">- 1°</div>
-                        <div class="data">
-                            <h2 class="weather_status" id="weather_status">Cloudy</h2>
-                            <div>Wind: <span id="wind">东风3-4级</span></div>
-                            <div>Humidity: <span id="humidity">91%</span></div>
-                            <div>Tide: <span id="tide"></span>无潮汐</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 雷电-->
-                <div class="weather_info ray bad">
-                    <div class="icon">
+                    <!-- 雷电 -->
+                    <div class="icon ray">
                         <div class="thunder">
                         </div>
                     </div>
-                    <div class="content">
-                        <h3 class="hour" id="hour">Morning</h3>
-                        <div class="degrees" id="degrees">- 1°</div>
-                        <div class="data">
-                            <h2 class="weather_status" id="weather_status">Cloudy</h2>
-                            <div>Wind: <span id="wind">东风3-4级</span></div>
-                            <div>Humidity: <span id="humidity">91%</span></div>
-                            <div>Tide: <span id="tide"></span>无潮汐</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 阴 -->
-                <div class="weather_info overcastDay bad">
-                    <div class="icon">
+                    <!-- 阴 -->
+                    <div class="icon overcastDay">
                         <div class="overcast">
                         </div>
                     </div>
+                    <!-- 天气信息 -->
                     <div class="content">
                         <h3 class="hour" id="hour">Morning</h3>
-                        <div class="degrees" id="degrees">- 1°</div>
+                        <div class="degrees"><span id="temperature">- 1</span>℃</div>
                         <div class="data">
-                            <h2 class="weather_status" id="weather_status">Cloudy</h2>
+                            <h2 class="weather_status" id="weather_status">Sunny</h2>
                             <div>Wind: <span id="wind">东风3-4级</span></div>
-                            <div>Humidity: <span id="humidity">91%</span></div>
+                            <div>Humidity: <span id="humidity">91</span>%</div>
                             <div>Tide: <span id="tide"></span>无潮汐</div>
                         </div>
                     </div>
@@ -181,193 +124,6 @@
             </div>
         </div>
     </div>
-    <!-- 电话排队初始化 -->
-    <script>
-        ($(function () {
-            // 基于准备好的dom，初始化echarts实例
-            var myPhoneChart = echarts.init(document.getElementById('statisticsPhone'), 'vintage');
-            var option = {
-                title: {
-                    show: true,
-                    text: '当前电话排队统计'
-                },
-                tooltip: {
-                    formatter: "{a} <br/>{b} : {c}"
-                },
-                series: [{
-                    name: '电话排队',
-                    type: 'gauge',
-                    // min:0,
-                    // max:1000,    //仪表盘最大刻度
-                    //仪表盘详情，用于显示数据。
-                    detail: {
-                        formatter: '{value}'
-                    },
-                    data: [{
-                        value: 50,
-                        name: '当前电话排队数'
-                    }],
-                    //仪表盘轴线相关配置
-                    axisLine: {
-                        show: true,
-                        lineStyle: {
-                            width: 30,
-                            shadowBlur: 0,
-                            // opacity:.8,
-                            //仪表盘的轴线可以被分成不同颜色的多段。每段的结束位置和颜色可以通过一个数组来表示。
-                            // color: [
-                            //     [0.3, '#67e0e3'],
-                            //     [0.7, '#37a2da'],
-                            //     [1, '#fd666d']
-                            // ]
-                        }
-                    },
-                    //分隔线样式
-                    splitLine: {
-                        length: 30,
-                    },
-                    pointer: {
-                        length: '70%',
-                    }
-                    //刻度样式
-                    // axisTick:{
-                    //     show:false,
-                    // },
-                    //刻度标签--刻度值
-                    // axisLabel:{
-                    //     show:false
-                    // },
-                }]
-            };
-
-            // 使用刚指定的配置项和数据显示图表。
-            myPhoneChart.setOption(option);
-            setInterval(function () {
-                option.series[0].data[0].value = (Math.random() * 100).toFixed(0) - 0;
-                myPhoneChart.setOption(option, true);
-            }, 2000);
-        }));
-    </script>
-    <!-- 案件接报初始化 -->
-    <script>
-        ($(function () {
-            var myReportChart = echarts.init(document.getElementById('statisticsReport'), 'vintage');
-            option = {
-                title: {
-                    text: "案件接报统计"
-                },
-                tooltip: {
-                    trigger: 'item',
-                    formatter: "{a} <br/>{b}: {c} ({d}%)",
-                },
-                legend: {
-                    orient: 'vertical',
-                    x: 'right',
-                    data: ['已结束案件', '待处理案件', '处理中案件']
-                },
-                series: [{
-                        name: '接报统计',
-                        type: 'pie',
-                        // selectedMode: 'single',
-                        radius: [0, '38%'],
-                        label: {
-                            normal: {
-                                position: 'inside',
-                                formatter: '{b}：{c}\n\n{d}%',
-                                // rich: {
-                                //     b: {
-                                //         color:'#fff',
-                                //         // fontSize: 16,
-                                //         // lineHeight: 32,
-                                //     },
-                                //     c: {
-                                //         color:'#fff',
-                                //         fontSize: 14,
-                                //     }
-                                // }
-                            }
-                        },
-                        labelLine: {
-                            normal: {
-                                show: false
-                            }
-                        },
-                        data: [{
-                                value: 800,
-                                name: '实际接报',
-                                // selected: true
-                            },
-                            {
-                                value: 400,
-                                name: '无效接报'
-                            },
-                        ]
-                    },
-                    {
-                        name: '实际接报统计',
-                        type: 'pie',
-                        radius: ['42%', '60%'],
-                        label: {
-                            normal: {
-                                padding: 5,
-                                position: 'outside',
-                                align: 'right',
-                                formatter: '{b|{b}：}\n{c}  {per|{d}%}',
-                                backgroundColor: '#eee',
-                                borderColor: '#aaa',
-                                borderWidth: 1,
-                                borderRadius: 4,
-                                // position: ['50%', '50%'],
-                                rich: {
-                                    b: {
-                                        fontSize: 16,
-                                        lineHeight: 32,
-                                    },
-                                    per: {
-                                        color: '#eee',
-                                        backgroundColor: '#334455',
-                                        padding: [2, 4],
-                                        borderRadius: 2
-                                    }
-                                }
-                            }
-                        },
-                        //标签的视觉引导线样式，在 label position 设置为'outside'的时候会显示视觉引导线。
-                        labelLine: {
-                            show: true,
-                            length: 20,
-                            length2: 10,
-                            // smooth:true,//平滑曲线
-                        },
-                        data: [{
-                                value: 310,
-                                name: '待处理案件'
-                            },
-                            {
-                                value: 234,
-                                name: '处理中案件'
-                            },
-                            {
-                                value: 335,
-                                name: '已结束案件'
-                            },
-                        ]
-                    }
-                ]
-            };
-            myReportChart.setOption(option);
-            setInterval(function () {
-                option.series[0].data[0].value = (Math.random() * 1000).toFixed(0) - 0;
-                option.series[0].data[1].value = (Math.random() * 1000).toFixed(0) - 0;
-                option.series[1].data[0].value = (Math.random() * 1000).toFixed(0) - 0;
-                option.series[1].data[1].value = (Math.random() * 1000).toFixed(0) - 0;
-                option.series[1].data[2].value = (Math.random() * 1000).toFixed(0) - 0;
-
-                myReportChart.setOption(option, true);
-            }, 2000);
-        }));
-    </script>
-
 </body>
 
 </html>

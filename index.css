@@ -69,10 +69,10 @@ h4 {
   position: relative;
   height: 100%;
   padding-top: 36px;
-  display: none;
 }
 .main .weather .weather_live .weather_info .icon {
   position: absolute;
+  display: none;
   top: 1rem;
   left: 1rem;
   width: 50%;
@@ -80,6 +80,9 @@ h4 {
   -webkit-transform: translateY(50px);
   -ms-transform: translateY(50px);
   transform: translateY(50px);
+}
+.main .weather .weather_live .weather_info .active {
+  display: block;
 }
 .main .weather .weather_live .weather_info .content {
   top: 5rem;
@@ -97,10 +100,13 @@ h4 {
   font-weight: 700;
 }
 .main .weather .weather_live .weather_info .content .degrees {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 300;
   color: white;
   line-height: 5rem;
+}
+.main .weather .weather_live .weather_info .content .degrees #temperature {
+  font-size: 4rem;
 }
 .main .weather .weather_live .weather_info .content .data {
   font-size: 1.1rem;
@@ -111,22 +117,16 @@ h4 {
   line-height: 2.5rem;
   margin: .5rem 0;
 }
-.main .weather .weather_live .active {
-  display: block;
-}
 .main .weather .weather_live .good {
   background-image: -webkit-linear-gradient(top, #0d68bc, #72ade0);
 }
 .main .weather .weather_live .bad {
   background-image: -webkit-linear-gradient(top, #485663, #a1b8ca);
 }
-.main .weather .weather_live .sunny {
-  background-color: #e3bb88;
-}
 .main .weather .weather_live .sunny .sun {
   position: absolute;
   right: 10%;
-  top: 0;
+  top: 1rem;
   transform: translateX(-50%);
   font-size: 10rem;
   color: #ffb948;
@@ -139,16 +139,10 @@ h4 {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-.main .weather .weather_live .rainy {
-  background-color: #b1695a;
-}
-.main .weather .weather_live .rainy .icon i {
-  position: absolute;
-}
 .main .weather .weather_live .rainy .sun {
   position: absolute;
   right: 10%;
-  top: 0;
+  top: 1.8rem;
   transform: translateX(-50%);
   font-size: 5rem;
   color: #d89864;
@@ -164,17 +158,18 @@ h4 {
 .main .weather .weather_live .rainy .cloud {
   position: absolute;
   right: 10%;
-  top: -1rem;
+  top: 1rem;
   font-size: 10rem;
   color: #ccc;
 }
 .main .weather .weather_live .rainy .sprinkles {
+  position: absolute;
   -webkit-transform: skewX(-20deg);
   -ms-transform: skewX(-20deg);
   transform: skewX(-20deg);
   right: 10%;
   margin-right: 2rem;
-  top: 100px;
+  top: 9rem;
   z-index: -1;
   -webkit-animation-name: sprinkle;
   animation-name: sprinkle;
@@ -198,24 +193,21 @@ h4 {
   -webkit-animation-delay: 0.75s;
   animation-delay: 0.75s;
 }
-.main .weather .weather_live .snow {
-  background-color: #644749;
-}
 .main .weather .weather_live .snow .cloud {
   position: absolute;
   right: 10%;
-  top: -1rem;
+  top: 0;
   font-size: 12rem;
   color: #ccc;
 }
 .main .weather .weather_live .snow .snowflakes {
   position: absolute;
   right: 10%;
-  top: 110px;
+  top: 10rem;
   margin-right: 1rem;
   z-index: -1;
-  -webkit-animation: snowflakes 3s linear infinite;
-  animation: snowflakes 3s linear infinite;
+  -webkit-animation: snowflakes 2s linear infinite;
+  animation: snowflakes 2s linear infinite;
 }
 .main .weather .weather_live .snow .snowflakes .snowflake {
   position: relative;
@@ -223,26 +215,23 @@ h4 {
   color: #fff;
 }
 .main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(1) {
-  -webkit-animation: snowflake 3.1s ease-in-out infinite;
-  animation: snowflake 3.1s ease-in-out infinite;
+  -webkit-animation: snowflake 2s ease-in-out infinite;
+  animation: snowflake 2s ease-in-out infinite;
 }
 .main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(2) {
-  -webkit-animation: snowflake 3.1s 0.2s ease-in-out infinite reverse;
-  animation: snowflake 3.1s 0.2s ease-in-out infinite reverse;
+  -webkit-animation: snowflake 2s 0.2s ease-in-out infinite reverse;
+  animation: snowflake 2s 0.2s ease-in-out infinite reverse;
   top: -20px;
 }
 .main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(3) {
-  -webkit-animation: snowflake 3.1s 0.2s ease-in-out infinite;
-  animation: snowflake 3.1s 0.2s ease-in-out infinite;
+  -webkit-animation: snowflake 2s 0.2s ease-in-out infinite;
+  animation: snowflake 2s 0.2s ease-in-out infinite;
   top: 10px;
 }
 .main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(4) {
-  -webkit-animation: snowflake 3.1s 0.4s ease-in-out infinite reverse;
-  animation: snowflake 3.1s 0.4s ease-in-out infinite reverse;
+  -webkit-animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+  animation: snowflake 2s 0.4s ease-in-out infinite reverse;
   top: -30px;
-}
-.main .weather .weather_live .cloudy {
-  background-color: #b1695a;
 }
 .main .weather .weather_live .cloudy .icon i {
   position: absolute;
@@ -250,7 +239,7 @@ h4 {
 .main .weather .weather_live .cloudy .sun {
   position: absolute;
   right: 10%;
-  top: 0;
+  top: 2rem;
   transform: translateX(-50%);
   font-size: 5rem;
   color: #d89864;
@@ -266,16 +255,16 @@ h4 {
 .main .weather .weather_live .cloudy .cloud {
   position: absolute;
   right: 10%;
-  top: -1rem;
+  top: 1.5rem;
   font-size: 10rem;
   color: rgba(255, 255, 255, 0.8);
 }
 .main .weather .weather_live .ray .thunder {
   color: #333;
   position: absolute;
-  height: 50px;
-  width: 50px;
-  top: 40%;
+  height: 60px;
+  width: 60px;
+  top: 8rem;
   right: 25%;
   background: #666;
   transform: translate(-50%, -50%);
@@ -342,7 +331,7 @@ h4 {
   position: absolute;
   width: 3px;
   height: 6px;
-  top: 30%;
+  top: 6rem;
   right: 25%;
   background: #CCCCCC;
   border-radius: 50%;
@@ -351,8 +340,8 @@ h4 {
   content: "";
   color: #333;
   position: absolute;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   top: 30px;
   left: -40px;
   background: #CCC;
