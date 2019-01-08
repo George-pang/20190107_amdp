@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont/iconfont.eot');
+  src: url('iconfont/iconfont.eot?#iefix') format('embedded-opentype'), url('iconfont/iconfont.woff2') format('woff2'), url('iconfont/iconfont.woff') format('woff'), url('iconfont/iconfont.ttf') format('truetype'), url('iconfont/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+html,
+body {
+  height: 100%;
+}
+strong,
+h3,
+h4 {
+  font-weight: 400;
+}
+.main {
+  height: 100%;
+  background-color: rgba(95, 116, 98, 0.3);
+}
+.main .weather {
+  float: left;
+  width: 60%;
+  height: 100%;
+  background-color: #e3bb88;
+  background-image: -webkit-linear-gradient(top, #485663, #a1b8ca);
+  z-index: 2;
+}
+.main .statistics {
+  float: left;
+  width: 40%;
+  height: 100%;
+}
+.main .weather .weather_live {
+  position: relative;
+  height: 64%;
+}
+.main .weather .weather_live .time_now {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  padding: 20px 0 0 20px;
+  width: 300px;
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #555;
+  line-height: 1em;
+  background-color: transparent;
+  z-index: 3;
+}
+.main .weather .weather_live .weather_info {
+  position: relative;
+  height: 100%;
+  padding-top: 36px;
+  background-color: #e3bb88;
+  display: none;
+}
+.main .weather .weather_live .weather_info .icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 50%;
+  height: 50px;
+  -webkit-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  transform: translateY(50px);
+}
+.main .weather .weather_live .weather_info .content {
+  top: 5rem;
+  right: 0;
+  width: 40%;
+  position: absolute;
+  color: white;
+}
+.main .weather .weather_live .weather_info .content .hour {
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0;
+  font-size: 1.8rem;
+  line-height: 3rem;
+  font-weight: 700;
+}
+.main .weather .weather_live .weather_info .content .degrees {
+  font-size: 4rem;
+  font-weight: 300;
+  color: white;
+  line-height: 5rem;
+}
+.main .weather .weather_live .weather_info .content .data {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+.main .weather .weather_live .weather_info .content .weather_status {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  margin: .5rem 0;
+}
+.main .weather .weather_live .active {
+  display: block;
+}
+.main .weather .weather_live .sunny .sun {
+  position: absolute;
+  left: 40%;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 10rem;
+  color: #d89864;
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+.main .weather .weather_bad {
+  background: rgba(29, 51, 121, 0.5);
+  height: 36%;
+  color: #fff;
+  overflow: hidden;
+}
+.main .weather .weather_bad .title {
+  background: rgba(58, 123, 255, 0.2);
+  height: 48px;
+  line-height: 48px;
+  padding: 0 20px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  font-size: 16px;
+}
+.main .weather .weather_bad .item_list {
+  padding: 12px 20px;
+}
+.main .weather .weather_bad .item {
+  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  line-height: 32px;
+  height: 32px;
+  color: #fff;
+  cursor: pointer;
+  color: #3690ff;
+}
+.main .weather .weather_bad .item .name {
+  display: inline-block;
+  width: 180px;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0 24px;
+}
+.main .statistics .statistics_phone {
+  height: 50%;
+}
+.main .statistics .statistics_report {
+  height: 50%;
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
