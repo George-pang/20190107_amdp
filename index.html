@@ -21,17 +21,17 @@
         <div class="weather">
             <!-- 实时天气 -->
             <div class="weather_live">
-                <p class="time_now">
+                <p class="time_now" id="time_now">
                     01月07日 周一 农历十二月初二
                 </p>
-                <div class="weather_info good">
-                    <!-- 天气ICON -->
-                    <!-- 晴 -->
+                <div class="weather_info">
+                <!-- 天气ICON -->
+                    <!-- 动画：晴 -->
                     <div class="icon sunny">
                         <i class="iconfont sun">&#xe74a;</i>
                     </div>
-                    <!-- 雨 -->
-                    <div class="icon rainy active">
+                    <!-- 动画：雨 -->
+                    <div class="icon rainy">
                         <i class="iconfont sun">&#xe74a;</i>
                         <i class="iconfont cloud">&#xe690;</i>
                         <i class="iconfont sprinkles">&#xe601; &#xe601; &#xe601; &#xe601; &#xe601;</i>
@@ -39,7 +39,7 @@
                         <i class="iconfont sprinkles">&#xe601; &#xe601; &#xe601; &#xe601; &#xe601;</i>
                         <i class="iconfont sprinkles">&#xe601; &#xe601; &#xe601; &#xe601; &#xe601;</i>
                     </div>
-                    <!-- 雪 -->
+                    <!-- 动画：雪 -->
                     <div class="icon snow">
                         <i class="iconfont cloud">&#xe690;</i>
                         <div class="snowflakes">
@@ -49,30 +49,35 @@
                             <i class="iconfont snowflake">&#xe7ce;</i>
                         </div>
                     </div>
-                    <!-- 多云 -->
+                    <!-- 动画：多云 -->
                     <div class="icon cloudy">
                         <i class="iconfont sun">&#xe74a;</i>
                         <i class="iconfont cloud">&#xe690;</i>
                     </div>
-                    <!-- 雷电 -->
+                    <!-- 动画：雷电 -->
                     <div class="icon ray">
                         <div class="thunder">
                         </div>
                     </div>
-                    <!-- 阴 -->
+                    <!-- 动画：阴 -->
                     <div class="icon overcastDay">
                         <div class="overcast">
                         </div>
                     </div>
-                    <!-- 天气信息 -->
+                    <!-- 除常见天气动画外，其他只切换天气icon类 -->
+                    <div class="icon common active">
+                        <i class="iconfont weather_icon"></i>
+                    </div>
+                <!-- 天气信息 -->
                     <div class="content">
                         <h3 class="hour" id="hour">Morning</h3>
                         <div class="degrees"><span id="temperature">- 1</span>℃</div>
                         <div class="data">
                             <h2 class="weather_status" id="weather_status">Sunny</h2>
+                            <div>最低温度: <span id="temperatureMin"></span>℃</div>
                             <div>Wind: <span id="wind">东风3-4级</span></div>
-                            <div>Humidity: <span id="humidity">91</span>%</div>
-                            <div>Tide: <span id="tide"></span>无潮汐</div>
+                            <div>Humidity: <span id="humidity">91</span></div>
+                            <div>Tide: <span id="tide">无潮汐</span></div>
                         </div>
                     </div>
                 </div>
@@ -87,7 +92,7 @@
                     <li class="item">
                         <strong>1</strong>
                         <span class="name">风暴潮警告：</span>
-                        <span class="value" id="warning_storm">現時沒有風暴潮警告。</span>
+                        <span class="value" id="warning_stormsurge">現時沒有風暴潮警告。</span>
                     </li>
                     <li class="item">
                         <strong>2</strong>

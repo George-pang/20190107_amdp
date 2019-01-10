@@ -43,8 +43,8 @@ strong,h3,h4{
     width: 60%;
     height: 100%;
     background-color: #e3bb88;
-    // background-image: -webkit-linear-gradient(top, rgb(13, 104, 188), rgb(114, 173, 224));
     background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
+    background-image: -moz-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));//兼容火狐
     z-index: 2;
     // opacity: 0;
 }
@@ -135,9 +135,12 @@ strong,h3,h4{
     //实时天气背景图
     .good{
         background-image: -webkit-linear-gradient(top, rgb(13, 104, 188), rgb(114, 173, 224));
+        background-image: -moz-linear-gradient(top, rgb(161, 202, 240), rgb(114, 173, 224));
+
     }
     .bad{
         background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
+        background-image: -moz-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
     }
     //天气动画--晴
     .sunny{
@@ -459,6 +462,16 @@ strong,h3,h4{
                 transform: translate(-50%, -50%) scale(1);
                 background: rgba(0, 0, 0, .5);
             }
+        }
+    }
+    .common{
+        .weather_icon{
+            position: absolute;
+            top: 2rem;
+            right: 10%;
+            font-size: 8rem;
+            color: #CCC;
+
         }
     }
 
