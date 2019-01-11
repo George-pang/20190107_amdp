@@ -1,6 +1,40 @@
  /* 此部分function供VS项目后台调用 */
+ $(function () {
+     // 窗口大小改变触发页面重载
+     $(window).resize(function () {
+         location.reload();
+     });
+     //实时更新即时时间 
+     getInstantTime();
+     setInterval(getInstantTime, 1000);
+     // function:获取即时时间
+     function getInstantTime() {
+         var time = new Date();
+         $("#hour").html(time.toLocaleTimeString());
+         //获取年月日
+         // var year = time.getFullYear();
+         // var month = time.getMonth();
+         // var day = time.getDate();
+         //获取时分秒
+         // var h = time.getHours();
+         // var m = time.getMinutes();
+         // var s = time.getSeconds();
+         // //检查是否小于10
+         // h = check(h);
+         // m = check(m);
+         // s = check(s);
+         // $("#hour").html(h+":"+m+":"+s);
+     }
+     // function：检查获取的时分秒是否小于10
+     //  function check(i) {
+     //      //方法一，用三元运算符
+     //      var num;
+     //      i < 10 ? num = "0" + i : num = i;
+     //      return num;
+     //  }
+ });
 
- 
+
  /* ************************************************************************************************** */
  /* function部分 */
  /* 实时天气模块 代码 */
@@ -12,21 +46,15 @@
      var year = data.time.substr(0, 4);
      var month = data.time.substr(5, 2);
      var day = data.time.substr(8, 2);
-     var time = data.time.substr(11, 2);
-     var weekday = data.time.substr(17);
-     //  alert(year);
-     //  alert(month);
-     //  alert(day);
-     //  alert(time);
-     //  alert(weekday);
-
+     //  var time = data.time.substr(11, 2);
+     var weekday = getWeekDayZh(data.time.substr(17));
      var weatherDesc = getWeatherDesc(data.weatherStatus); //函数调用getWeatherDesc()
      changeBgImg(weatherDesc); //函数调用：changeBgImg();
      changeWeatherIcon(weatherDesc); //函数调用：changeWeatherIcon();
-     var hour = getTime(time); //函数调用getTime()
+     //  var hour = getTime(time); //函数调用getTime()
      // $("#time_now").html(`${year}年${month}月${day}日\t${weekday}`);
      $("#time_now").html(year + "年" + month + "月" + day + "日\t" + weekday);
-     $("#hour").html(hour);
+     //  $("#hour").html(hour);
      $("#temperature").html(data.temperature);
      $("#temperatureMin").html(data.temperatureMin);
      $("#weather_status").html(weatherDesc);
@@ -165,7 +193,7 @@
          $(".cloudy").addClass("active").siblings(".icon").removeClass("active");
      } else if (weatherDesc == "雨" || weatherDesc.indexOf("雨") != -1) {
          $(".rainy").addClass("active").siblings(".icon").removeClass("active");
-     } else if (weatherDesc == "雪" || weatherDesc.indexOf("雨") != -1) {
+     } else if (weatherDesc == "雪" || weatherDesc.indexOf("雪") != -1) {
          $(".snow").addClass("active").siblings(".icon").removeClass("active");
      } else if (weatherDesc == "雷雨") {
          $(".ray").addClass("active").siblings(".icon").removeClass("active");
@@ -178,18 +206,47 @@
      }
 
  }
- //function：根据传入的时间判断上午、下午、晚上
- function getTime(time) {
-     if (time < 12) {
-         return "MORNING";
-     } else if (time < 17) {
-         return "AFTERNOON";
-     } else if (time < 21) {
-         return "EVENING";
-     } else if (time < 24) {
-         return "NIGHT";
+ //function：星期日对应英文转中文繁体
+ function getWeekDayZh(weekday) {
+     var str;
+     switch (weekday) {
+         case "Monday":
+             str = "星期一";
+             break;
+         case "Tuesday":
+             str = "星期二";
+             break;
+         case "Wednesday":
+             str = "星期三";
+             break;
+         case "Thursday":
+             str = "星期四";
+             break;
+         case "Friday":
+             str = "星期五";
+             break;
+         case "Saturday":
+             str = "星期六";
+             break;
+         default:
+             str = "星期日";
+             break;
      }
+     return str;
  }
+
+ //  //function：根据传入的时间判断上午、下午、晚上
+ //  function getTime(time) {
+ //      if (time < 12) {
+ //          return "MORNING";
+ //      } else if (time < 17) {
+ //          return "AFTERNOON";
+ //      } else if (time < 21) {
+ //          return "EVENING";
+ //      } else if (time < 24) {
+ //          return "NIGHT";
+ //      }
+ //  }
 
  /* ************************************************************************************************ */
  /* 恶劣天气模块 代码 */
@@ -211,34 +268,38 @@
      var data = JSON.parse(data);
 
      // 基于准备好的dom，初始化echarts实例
-     var myPhoneChart = echarts.init(document.getElementById('statisticsPhone'), 'vintage');
+     var myPhoneChart = echarts.init(document.getElementById('phoneChart'), 'vintage');
      //配置项
      var phoneChartOption = {
-         title: {
-             show: true,
-             text: '当前电话排队统计'
-         },
+         // title: {
+         //     show: true,
+         //     text: '當前電話排隊統計'
+         // },
+         backgroundColor: "rgba(91,92,110,1)",
          tooltip: {
              formatter: "{a} <br/>{b} : {c}"
          },
          series: [{
-             name: '电话排队',
+             name: '電話排隊',
              type: 'gauge',
              // min:0,
-             // max:1000,    //仪表盘最大刻度
+             max: 20, //仪表盘最大刻度
              //仪表盘详情，用于显示数据。
              detail: {
                  formatter: '{value}'
              },
              data: [{
-                 value: 50,
-                 name: '当前电话排队数'
+                 value: 10,
+                 name: '當前電話排隊數',
+                 textStyle: {
+                     fontSize: 12,
+                 },
              }],
              //仪表盘轴线相关配置
              axisLine: {
                  show: true,
                  lineStyle: {
-                     width: 30,
+                     width: 20,
                      shadowBlur: 0,
                      // opacity:.8,
                      //仪表盘的轴线可以被分成不同颜色的多段。每段的结束位置和颜色可以通过一个数组来表示。
@@ -251,26 +312,25 @@
              },
              //分隔线样式
              splitLine: {
-                 length: 30,
+                 length: 20,
              },
              pointer: {
-                 length: '70%',
-             }
-             //刻度样式
-             // axisTick:{
-             //     show:false,
-             // },
-             //刻度标签--刻度值
-             // axisLabel:{
-             //     show:false
-             // },
+                 length: '60%',
+             },
+             title: { // 仪表盘标题。
+                 show: true, // 是否显示标题,默认 true。
+                 offsetCenter: [0, "80%"], //相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
+                 fontSize: 16, // 文字的字体大小,默认 15。
+                 color: "#fff", //仪表盘标题字体颜色
+             },
          }]
      };
-     var myReportChart = echarts.init(document.getElementById('statisticsReport'), 'vintage');
+     var myReportChart = echarts.init(document.getElementById('reportChart'), 'vintage');
      var reportChartOption = {
-         title: {
-             text: "案件接报统计"
-         },
+         // title: {
+         //     text: "案件接報統計"
+         // },
+         backgroundColor: "rgba(41,52,65,1)",
          tooltip: {
              trigger: 'item',
              formatter: "{a} <br/>{b}: {c} ({d}%)",
@@ -278,10 +338,13 @@
          legend: {
              orient: 'vertical',
              x: 'right',
-             data: ['已结束案件', '待处理案件', '处理中案件']
+             data: ['已結束案件', '待處理案件', '處理中案件'],
+             textStyle: {
+                 color: "#fff",
+             }
          },
          series: [{
-                 name: '接报统计',
+                 name: '接報統計',
                  type: 'pie',
                  // selectedMode: 'single',
                  radius: [0, '50%'],
@@ -309,17 +372,17 @@
                  },
                  data: [{
                          value: 800,
-                         name: '实际接报',
+                         name: '實際接報',
                          // selected: true
                      },
                      {
                          value: 400,
-                         name: '无效接报'
+                         name: '無效接報'
                      },
                  ]
              },
              {
-                 name: '实际接报统计',
+                 name: '實際接報統計',
                  type: 'pie',
                  radius: ['55%', '70%'],
                  label: {
@@ -356,15 +419,15 @@
                  },
                  data: [{
                          value: 310,
-                         name: '待处理案件'
+                         name: '待處理案件'
                      },
                      {
                          value: 234,
-                         name: '处理中案件'
+                         name: '處理中案件'
                      },
                      {
                          value: 335,
-                         name: '已结束案件'
+                         name: '已結束案件'
                      },
                  ]
              }

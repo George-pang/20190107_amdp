@@ -30,7 +30,6 @@ h4 {
 }
 .main {
   height: 100%;
-  background-color: rgba(95, 116, 98, 0.3);
 }
 .main .weather {
   float: left;
@@ -40,11 +39,6 @@ h4 {
   background-image: -webkit-linear-gradient(top, #485663, #a1b8ca);
   background-image: -moz-linear-gradient(top, #485663, #a1b8ca);
   z-index: 2;
-}
-.main .statistics {
-  float: left;
-  width: 40%;
-  height: 100%;
 }
 .main .weather .weather_live {
   position: relative;
@@ -423,11 +417,42 @@ h4 {
   color: rgba(255, 255, 255, 0.7);
   padding: 0 24px;
 }
+.main .statistics {
+  float: left;
+  width: 40%;
+  height: 100%;
+}
 .main .statistics .statistics_phone {
-  height: 50%;
+  position: relative;
+  height: 40%;
+  background-color: #5b5c6e;
+}
+.main .statistics .statistics_phone .phoneChart {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 80%;
+  padding-top: 20px;
 }
 .main .statistics .statistics_report {
-  height: 50%;
+  position: relative;
+  height: 60%;
+  background-color: #293441;
+}
+.main .statistics .statistics_report .reportChart {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+}
+.main .statistics .title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 18px;
+  color: #fff;
+  z-index: 99;
 }
 /***************************************************/
 @-webkit-keyframes rotate {

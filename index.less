@@ -32,495 +32,517 @@ strong,h3,h4{
 }
 .main{
     height: 100%;
-    background-color: rgba(95, 116, 98, .3);
-    // background-image: url("bg.jpg");
-    // background-position: center;
-    // background-size: cover;
-    // background-repeat: no-repeat;
-}
-.main .weather{
-    float: left;
-    width: 60%;
-    height: 100%;
-    background-color: #e3bb88;
-    background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
-    background-image: -moz-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));//兼容火狐
-    z-index: 2;
-    // opacity: 0;
-}
-.main .statistics{
-    float: left;
-    width: 40%;
-    height: 100%;
-    // background-color: yellow;
-}
-// 实时天气
-.main .weather .weather_live{
-    position: relative;
-    height: 64%;
-    overflow: hidden;
-    // background-color: #b1695a;
-    // background-image: -webkit-linear-gradient(top,#485663,#a1b8ca);
-    .time_now{
-        position: absolute;
-        top: 0;
-        left: 0;
-        text-align: left;
-        padding: 20px 0 0 20px;
-        width: 300px;
-        width: 100%;
-        font-size: 16px;
-        color: #fff;
-        text-shadow: 1px 1px 1px #555;
-        line-height: 1em;
-        background-color: transparent;
-        z-index: 3;
-
-    }
-    .weather_info{
-        position: relative;
+    .weather{
+        float: left;
+        width: 60%;
         height: 100%;
-        padding-top: 36px;
-        // background-color: #e3bb88;
-        // display: none;
-        .icon{ //天气icon
-            position: absolute;
-            display: none;
-            top: 1rem;
-            left: 1rem;
-            width: 50%;
-            height: 50px;
-            -webkit-transform: translateY(50px);
-            -ms-transform: translateY(50px);
-            transform: translateY(50px);
-        }
-        .active{
-            display: block;
-        }
-        .content{
-            top: 5rem;
-            right: 0;
-            width: 40%;
-            position: absolute;
-            color: white;
-            .hour{
-                text-transform: uppercase;
-                color: rgba(255, 255, 255, 0.4);
-                margin-bottom: 0;
-                font-size: 1.8rem;
-                line-height: 3rem;
-                font-weight: 700;
-            }
-            .degrees{
-                font-size: 3rem;
-                font-weight: 300;
-                color: white;
-                line-height: 5rem;
-                #temperature{
-                    font-size: 4rem;
-                }
-            }
-            .data{
-                font-size: 1.1rem;
-                line-height: 1.5rem;
-            }
-            .weather_status{
-                font-size: 1.8rem;
-                line-height: 2.5rem;
-                margin: .5rem 0;
-            }
-        }
-    }
-
-    //实时天气背景图
-    .good{
-        background-image: -webkit-linear-gradient(top, rgb(13, 104, 188), rgb(114, 173, 224));
-        background-image: -moz-linear-gradient(top, rgb(161, 202, 240), rgb(114, 173, 224));
-
-    }
-    .bad{
+        background-color: #e3bb88;
         background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
-        background-image: -moz-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
-    }
-    //天气动画--晴
-    .sunny{
-        // background-color: #e3bb88;
-        .sun{
-            position: absolute;
-            // left: 40%;
-            right: 10%;
-            // top: 0;
-            top: 1rem;
-            transform: translateX(-50%);
-            font-size: 10rem;
-            // color: #d89864;
-            color: #ffb948;
-            -webkit-animation-name: rotate;
-            animation-name: rotate;
-            -webkit-animation-duration: 2s;
-            animation-duration: 2s;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-            -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-        }
-    }
-    // 天气动画--雨
-    .rainy{
-        // background-color: #b1695a;
-        .sun{
-            position: absolute;
-            // left: 40%;
-            right: 10%;
-            // top: 0;
-            top: 1.8rem;
-            transform: translateX(-50%);
-            font-size: 5rem;
-            color: #d89864;
-            -webkit-animation-name: rotate;
-            animation-name: rotate;
-            -webkit-animation-duration: 2s;
-            animation-duration: 2s;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-            -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-        }
-        .cloud{
-            position: absolute;
-            // left: 40%;
-            right: 10%;
-            // top: -1rem;
-            top: 1rem;
-            font-size: 10rem;
-            // color: #9c9387;
-            color: #ccc;
-        }
-        .sprinkles{
-            position: absolute;
-            -webkit-transform: skewX(-20deg);
-            -ms-transform: skewX(-20deg);
-            transform: skewX(-20deg);
-            // left: 42%;
-            right: 10%;
-            margin-right: 2rem;
-            // top: 100px;
-            top: 9rem;
-            z-index: -1;
-            -webkit-animation-name: sprinkle;
-            animation-name: sprinkle;
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-            -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-            // color: #e3bb88;
-            color: #ccc;
-            &:nth-of-type(4){
-                -webkit-animation-delay: 0.25s;
-                 animation-delay: 0.25s;
-            }
-            &:nth-of-type(5){
-                -webkit-animation-delay: 0.5s;
-                 animation-delay: 0.5s;
-            }
-            &:nth-of-type(6){
-                -webkit-animation-delay: 0.75s;
-                 animation-delay: 0.75s;
-            }
-        }
-    }
-    //天气动画--雪
-    .snow{
-        // background-color: #644749;
-        .cloud{
-            position: absolute;
-            // left: 36%;
-            right: 10%;
-            // top: -1rem;
-            top: 0;
-            font-size: 12rem;
-            // color: #9c9387;
-            color: #ccc;
-        }
-        .snowflakes{
-            position: absolute;
-            // left: 45%;
-            right: 10%;
-            // top: 110px;
-            top: 10rem;
-            margin-right: 1rem;
-            z-index: -1;
-            -webkit-animation: snowflakes 2s linear infinite;
-            animation: snowflakes 2s linear infinite;
-            .snowflake{
-                position: relative;
-                font-size: 2rem;
-                color: #fff;
-                &:nth-of-type(1){
-                    -webkit-animation: snowflake 2s ease-in-out infinite;
-                    animation: snowflake 2s ease-in-out infinite;
-                }
-                &:nth-of-type(2){
-                    -webkit-animation: snowflake 2s 0.2s ease-in-out infinite reverse;
-                    animation: snowflake 2s 0.2s ease-in-out infinite reverse;
-                    top: -20px;
-                }
-                &:nth-of-type(3){
-                    -webkit-animation: snowflake 2s 0.2s ease-in-out infinite;
-                    animation: snowflake 2s 0.2s ease-in-out infinite;
-                    top: 10px;
-                }
-                &:nth-of-type(4){
-                    -webkit-animation: snowflake 2s 0.4s ease-in-out infinite reverse;
-                    animation: snowflake 2s 0.4s ease-in-out infinite reverse;
-                    top: -30px;
-                }
-            }
-        }
-    }
-    //天气动画--多云
-    .cloudy{
-        // background-color: #b1695a;
-        .icon{
-            i{
+        background-image: -moz-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));//兼容火狐
+        z-index: 2;
+        // opacity: 0;
+        .weather_live{
+            position: relative;
+            height: 64%;
+            overflow: hidden;
+            // background-color: #b1695a;
+            // background-image: -webkit-linear-gradient(top,#485663,#a1b8ca);
+            .time_now{
                 position: absolute;
+                top: 0;
+                left: 0;
+                text-align: left;
+                padding: 20px 0 0 20px;
+                width: 300px;
+                width: 100%;
+                font-size: 16px;
+                color: #fff;
+                text-shadow: 1px 1px 1px #555;
+                line-height: 1em;
+                background-color: transparent;
+                z-index: 3;
+        
+            }
+            .weather_info{
+                position: relative;
+                height: 100%;
+                padding-top: 36px;
+                // background-color: #e3bb88;
+                // display: none;
+                .icon{ //天气icon
+                    position: absolute;
+                    display: none;
+                    top: 1rem;
+                    left: 1rem;
+                    width: 50%;
+                    height: 50px;
+                    -webkit-transform: translateY(50px);
+                    -ms-transform: translateY(50px);
+                    transform: translateY(50px);
+                }
+                .active{
+                    display: block;
+                }
+                .content{
+                    top: 5rem;
+                    right: 0;
+                    width: 40%;
+                    position: absolute;
+                    color: white;
+                    .hour{
+                        text-transform: uppercase;
+                        color: rgba(255, 255, 255, 0.4);
+                        margin-bottom: 0;
+                        font-size: 1.8rem;
+                        line-height: 3rem;
+                        font-weight: 700;
+                    }
+                    .degrees{
+                        font-size: 3rem;
+                        font-weight: 300;
+                        color: white;
+                        line-height: 5rem;
+                        #temperature{
+                            font-size: 4rem;
+                        }
+                    }
+                    .data{
+                        font-size: 1.1rem;
+                        line-height: 1.5rem;
+                    }
+                    .weather_status{
+                        font-size: 1.8rem;
+                        line-height: 2.5rem;
+                        margin: .5rem 0;
+                    }
+                }
+            }
+        
+            //实时天气背景图
+            .good{
+                background-image: -webkit-linear-gradient(top, rgb(13, 104, 188), rgb(114, 173, 224));
+                background-image: -moz-linear-gradient(top, rgb(161, 202, 240), rgb(114, 173, 224));
+        
+            }
+            .bad{
+                background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
+                background-image: -moz-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
+            }
+            //天气动画--晴
+            .sunny{
+                // background-color: #e3bb88;
+                .sun{
+                    position: absolute;
+                    // left: 40%;
+                    right: 10%;
+                    // top: 0;
+                    top: 1rem;
+                    transform: translateX(-50%);
+                    font-size: 10rem;
+                    // color: #d89864;
+                    color: #ffb948;
+                    -webkit-animation-name: rotate;
+                    animation-name: rotate;
+                    -webkit-animation-duration: 2s;
+                    animation-duration: 2s;
+                    -webkit-animation-iteration-count: infinite;
+                    animation-iteration-count: infinite;
+                    -webkit-animation-timing-function: linear;
+                    animation-timing-function: linear;
+                }
+            }
+            // 天气动画--雨
+            .rainy{
+                // background-color: #b1695a;
+                .sun{
+                    position: absolute;
+                    // left: 40%;
+                    right: 10%;
+                    // top: 0;
+                    top: 1.8rem;
+                    transform: translateX(-50%);
+                    font-size: 5rem;
+                    color: #d89864;
+                    -webkit-animation-name: rotate;
+                    animation-name: rotate;
+                    -webkit-animation-duration: 2s;
+                    animation-duration: 2s;
+                    -webkit-animation-iteration-count: infinite;
+                    animation-iteration-count: infinite;
+                    -webkit-animation-timing-function: linear;
+                    animation-timing-function: linear;
+                }
+                .cloud{
+                    position: absolute;
+                    // left: 40%;
+                    right: 10%;
+                    // top: -1rem;
+                    top: 1rem;
+                    font-size: 10rem;
+                    // color: #9c9387;
+                    color: #ccc;
+                }
+                .sprinkles{
+                    position: absolute;
+                    -webkit-transform: skewX(-20deg);
+                    -ms-transform: skewX(-20deg);
+                    transform: skewX(-20deg);
+                    // left: 42%;
+                    right: 10%;
+                    margin-right: 2rem;
+                    // top: 100px;
+                    top: 9rem;
+                    z-index: -1;
+                    -webkit-animation-name: sprinkle;
+                    animation-name: sprinkle;
+                    -webkit-animation-duration: 1s;
+                    animation-duration: 1s;
+                    -webkit-animation-iteration-count: infinite;
+                    animation-iteration-count: infinite;
+                    -webkit-animation-timing-function: linear;
+                    animation-timing-function: linear;
+                    // color: #e3bb88;
+                    color: #ccc;
+                    &:nth-of-type(4){
+                        -webkit-animation-delay: 0.25s;
+                         animation-delay: 0.25s;
+                    }
+                    &:nth-of-type(5){
+                        -webkit-animation-delay: 0.5s;
+                         animation-delay: 0.5s;
+                    }
+                    &:nth-of-type(6){
+                        -webkit-animation-delay: 0.75s;
+                         animation-delay: 0.75s;
+                    }
+                }
+            }
+            //天气动画--雪
+            .snow{
+                // background-color: #644749;
+                .cloud{
+                    position: absolute;
+                    // left: 36%;
+                    right: 10%;
+                    // top: -1rem;
+                    top: 0;
+                    font-size: 12rem;
+                    // color: #9c9387;
+                    color: #ccc;
+                }
+                .snowflakes{
+                    position: absolute;
+                    // left: 45%;
+                    right: 10%;
+                    // top: 110px;
+                    top: 10rem;
+                    margin-right: 1rem;
+                    z-index: -1;
+                    -webkit-animation: snowflakes 2s linear infinite;
+                    animation: snowflakes 2s linear infinite;
+                    .snowflake{
+                        position: relative;
+                        font-size: 2rem;
+                        color: #fff;
+                        &:nth-of-type(1){
+                            -webkit-animation: snowflake 2s ease-in-out infinite;
+                            animation: snowflake 2s ease-in-out infinite;
+                        }
+                        &:nth-of-type(2){
+                            -webkit-animation: snowflake 2s 0.2s ease-in-out infinite reverse;
+                            animation: snowflake 2s 0.2s ease-in-out infinite reverse;
+                            top: -20px;
+                        }
+                        &:nth-of-type(3){
+                            -webkit-animation: snowflake 2s 0.2s ease-in-out infinite;
+                            animation: snowflake 2s 0.2s ease-in-out infinite;
+                            top: 10px;
+                        }
+                        &:nth-of-type(4){
+                            -webkit-animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+                            animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+                            top: -30px;
+                        }
+                    }
+                }
+            }
+            //天气动画--多云
+            .cloudy{
+                // background-color: #b1695a;
+                .icon{
+                    i{
+                        position: absolute;
+                    }
+                }
+                .sun{
+                    position: absolute;
+                    // left: 40%;
+                    right: 10%;
+                    // top: 0;
+                    top: 2rem;
+                    transform: translateX(-50%);
+                    font-size: 5rem;
+                    color: #d89864;
+                    -webkit-animation-name: rotate;
+                    animation-name: rotate;
+                    -webkit-animation-duration: 2s;
+                    animation-duration: 2s;
+                    -webkit-animation-iteration-count: infinite;
+                    animation-iteration-count: infinite;
+                    -webkit-animation-timing-function: linear;
+                    animation-timing-function: linear;
+                }
+                .cloud{
+                    position: absolute;
+                    // left: 40%;
+                    right: 10%;
+                    // top: -1rem;
+                    top: 1.5rem;
+                    font-size: 10rem;
+                    // color: #e3bb88;
+                    color: rgba(255, 255, 255, .8);
+                }
+            }
+            // 天气动画--雷电---利用线性渐变、阴影、缩放实现(源自网络)
+            .ray{
+                .thunder {
+                    color: #333;
+                    position: absolute;
+                    // height: 50px;
+                    // width: 50px;
+                    height: 60px;
+                    width: 60px;
+                    // top: 40%;
+                    top: 8rem;
+                    // left: 30%;
+                    right: 25%;
+                    background: #666;
+                    transform: translate(-50%, -50%);
+                    border-radius: 50%;
+                    //利用阴影画云彩
+                    box-shadow: #666 65px -15px 0 -5px, #666 25px -25px, #666 30px 10px, #666 60px 15px 0 -10px, #666 85px 5px 0 -5px;
+                    animation: cloudy 5s ease-in-out infinite;
+                }
+            
+                .thunder:before { //闪电
+                    content: "";
+                    position: absolute;
+                    top: 60px;
+                    left: 60px;
+                    border-left: 0px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-top: 38px solid yellow;
+                    box-shadow: yellow -7px -32px;
+                    transform: rotate(30deg);
+                    transform-origin: center -50px;
+                    animation: stormy_thunder 1.5s steps(1, end) infinite;
+                    ;
+                }
+            
+                .thunder:after { //底部云彩阴影
+                    content: "";
+                    position: absolute;
+                    top: 120px;
+                    left: 64px;
+                    height: 15px;
+                    width: 120px;
+                    background: rgba(0, 0, 0, .5);
+                    border-radius: 50%;
+                    z-index: -1;
+                    transform: translate(-50%, -50%);
+                    animation: cloudy_shadow 5s ease-in-out infinite;
+                }
+            
+                @keyframes cloudy {
+                    50% {
+                        transform: translate(-50%, -30px);
+                    }
+                }
+            
+                @keyframes cloudy_shadow {
+                    50% {
+                        transform: translate(-50%, 0) scale(0.8);
+                        background: rgba(0, 0, 0, .2);
+                    }
+                }
+            
+                @keyframes stormy_thunder {
+                    0% {
+                        transform: rotate(30deg);
+                        opacity: 1;
+                    }
+                    5% {
+                        transform: rotate(-34deg);
+                        opacity: 1;
+                    }
+                    10% {
+                        transform: rotate(0deg);
+                        opacity: 1;
+                    }
+                    15% {
+                        transform: rotate(-34deg);
+                        opacity: 0;
+                    }
+                }
+            }
+            //天气动画--阴---用线性渐变、阴影、缩放实现(源自网络)
+            .overcastDay{
+                .overcast {
+                    position: absolute;
+                    width: 3px;
+                    height: 6px;
+                    // top: 30%;
+                    top: 6rem;
+                    // left: 50%;
+                    right: 25%;
+                    background: #CCCCCC;
+                    border-radius: 50%;
+                }
+        
+                .overcast:before {
+                    content: "";
+                    color: #333;
+                    position: absolute;
+                    // height: 50px;
+                    // width: 50px;
+                    height: 60px;
+                    width: 60px;
+                    top: 30px;
+                    // top: 90px;
+                    left: -40px;
+                    background: #CCC;
+                    transform: translate(-50%, -50%);
+                    border-radius: 50%;
+                    box-shadow: #CCC 65px -15px 0 -5px, #CCC 25px -25px, #CCC 30px 10px, #CCC 60px 15px 0 -10px, #CCC 85px 5px 0 -5px;
+                    animation: cloudy 5s ease-in-out infinite;
+                }
+        
+                .overcast:after {
+                    content: "";
+                    position: absolute;
+                    top: 120px;
+                    left: 50%;
+                    height: 15px;
+                    width: 120px;
+                    background: rgba(0, 0, 0, .5);
+                    border-radius: 50%;
+                    transform: translate(-50%, -50%);
+                    animation: cloudy_shadow 5s ease-in-out infinite;
+                }
+        
+                @keyframes cloudy {
+                    50% {
+                        transform: translate(-50%, -70%);
+                    }
+                    100% {
+                        transform: translate(-50%, -50%);
+                    }
+                }
+        
+                @keyframes cloudy_shadow {
+                    50% {
+                        transform: translate(-50%, -50%) scale(0.8);
+                        background: rgba(0, 0, 0, .2);
+                    }
+                    100% {
+                        transform: translate(-50%, -50%) scale(1);
+                        background: rgba(0, 0, 0, .5);
+                    }
+                }
+            }
+            .common{
+                .weather_icon{
+                    position: absolute;
+                    top: 2rem;
+                    right: 10%;
+                    font-size: 8rem;
+                    color: #CCC;
+        
+                }
+            }
+        
+        }
+        .weather_bad{
+            // background: rgba(255,255,255,0.1);
+            background: rgba(29,51,121,.5);
+            height: 36%;
+            color: #fff;
+            overflow: hidden;
+            .title{
+                background: rgba(58,123,255,.2);
+                height: 48px;
+                line-height: 48px;
+                padding: 0 20px;
+                color: rgba(255,255,255,.8);
+                text-align: left;
+                // width: 300px;
+                font-size: 16px;
+            }
+            .item_list{
+                padding: 12px 20px;
+            }
+            .item{
+                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+                line-height: 32px;
+                height: 32px;
+                color: #fff;
+                cursor: pointer;
+                // border-bottom: 1px solid rgba(67,104,199,.2);
+                color: #3690ff;
+                .name{
+                    display: inline-block;
+                    width: 180px;
+                    color: rgba(255,255,255,.7);
+                    padding: 0 24px;
+                }
             }
         }
-        .sun{
+    }
+    .statistics{
+        float: left;
+        width: 40%;
+        // padding-left:50px; 
+        height: 100%;
+        // background-color: rgba(41,52,65,1);
+        .statistics_phone{
+            position: relative;
+            height: 40%;
+            // padding-top: 20px;
+            background-color: rgba(91,92,110,1);
+            .phoneChart{
+                position: absolute;
+                // top: 20px;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 100%;
+                width: 80%;
+                padding-top: 20px;
+            }
+        }
+        .statistics_report{
+            position: relative;
+            height: 60%;
+            // padding-top: 20px;
+            background-color: rgba(41,52,65,1);
+            .reportChart{
+                width: 100%;
+                height: 100%;
+                padding-top: 20px;
+            }
+        }
+        .title{
             position: absolute;
-            // left: 40%;
-            right: 10%;
+            top: 20px;
             // top: 0;
-            top: 2rem;
-            transform: translateX(-50%);
-            font-size: 5rem;
-            color: #d89864;
-            -webkit-animation-name: rotate;
-            animation-name: rotate;
-            -webkit-animation-duration: 2s;
-            animation-duration: 2s;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-            -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-        }
-        .cloud{
-            position: absolute;
-            // left: 40%;
-            right: 10%;
-            // top: -1rem;
-            top: 1.5rem;
-            font-size: 10rem;
-            // color: #e3bb88;
-            color: rgba(255, 255, 255, .8);
-        }
-    }
-    // 天气动画--雷电---利用线性渐变、阴影、缩放实现(源自网络)
-    .ray{
-        .thunder {
-            color: #333;
-            position: absolute;
-            // height: 50px;
-            // width: 50px;
-            height: 60px;
-            width: 60px;
-            // top: 40%;
-            top: 8rem;
-            // left: 30%;
-            right: 25%;
-            background: #666;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            //利用阴影画云彩
-            box-shadow: #666 65px -15px 0 -5px, #666 25px -25px, #666 30px 10px, #666 60px 15px 0 -10px, #666 85px 5px 0 -5px;
-            animation: cloudy 5s ease-in-out infinite;
-        }
-    
-        .thunder:before { //闪电
-            content: "";
-            position: absolute;
-            top: 60px;
-            left: 60px;
-            border-left: 0px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 38px solid yellow;
-            box-shadow: yellow -7px -32px;
-            transform: rotate(30deg);
-            transform-origin: center -50px;
-            animation: stormy_thunder 1.5s steps(1, end) infinite;
-            ;
-        }
-    
-        .thunder:after { //底部云彩阴影
-            content: "";
-            position: absolute;
-            top: 120px;
-            left: 64px;
-            height: 15px;
-            width: 120px;
-            background: rgba(0, 0, 0, .5);
-            border-radius: 50%;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            animation: cloudy_shadow 5s ease-in-out infinite;
-        }
-    
-        @keyframes cloudy {
-            50% {
-                transform: translate(-50%, -30px);
-            }
-        }
-    
-        @keyframes cloudy_shadow {
-            50% {
-                transform: translate(-50%, 0) scale(0.8);
-                background: rgba(0, 0, 0, .2);
-            }
-        }
-    
-        @keyframes stormy_thunder {
-            0% {
-                transform: rotate(30deg);
-                opacity: 1;
-            }
-            5% {
-                transform: rotate(-34deg);
-                opacity: 1;
-            }
-            10% {
-                transform: rotate(0deg);
-                opacity: 1;
-            }
-            15% {
-                transform: rotate(-34deg);
-                opacity: 0;
-            }
-        }
-    }
-    //天气动画--阴---用线性渐变、阴影、缩放实现(源自网络)
-    .overcastDay{
-        .overcast {
-            position: absolute;
-            width: 3px;
-            height: 6px;
-            // top: 30%;
-            top: 6rem;
-            // left: 50%;
-            right: 25%;
-            background: #CCCCCC;
-            border-radius: 50%;
-        }
-
-        .overcast:before {
-            content: "";
-            color: #333;
-            position: absolute;
-            // height: 50px;
-            // width: 50px;
-            height: 60px;
-            width: 60px;
-            top: 30px;
-            // top: 90px;
-            left: -40px;
-            background: #CCC;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            box-shadow: #CCC 65px -15px 0 -5px, #CCC 25px -25px, #CCC 30px 10px, #CCC 60px 15px 0 -10px, #CCC 85px 5px 0 -5px;
-            animation: cloudy 5s ease-in-out infinite;
-        }
-
-        .overcast:after {
-            content: "";
-            position: absolute;
-            top: 120px;
-            left: 50%;
-            height: 15px;
-            width: 120px;
-            background: rgba(0, 0, 0, .5);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            animation: cloudy_shadow 5s ease-in-out infinite;
-        }
-
-        @keyframes cloudy {
-            50% {
-                transform: translate(-50%, -70%);
-            }
-            100% {
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        @keyframes cloudy_shadow {
-            50% {
-                transform: translate(-50%, -50%) scale(0.8);
-                background: rgba(0, 0, 0, .2);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                background: rgba(0, 0, 0, .5);
-            }
-        }
-    }
-    .common{
-        .weather_icon{
-            position: absolute;
-            top: 2rem;
-            right: 10%;
-            font-size: 8rem;
-            color: #CCC;
-
-        }
-    }
-
-}
-
-//恶劣天气
-.main .weather .weather_bad{
-    // background: rgba(255,255,255,0.1);
-    background: rgba(29,51,121,.5);
-    height: 36%;
-    color: #fff;
-    overflow: hidden;
-    .title{
-        background: rgba(58,123,255,.2);
-        height: 48px;
-        line-height: 48px;
-        padding: 0 20px;
-        color: rgba(255,255,255,.8);
-        text-align: left;
-        // width: 300px;
-        font-size: 16px;
-    }
-    .item_list{
-        padding: 12px 20px;
-    }
-    .item{
-        border-bottom: 1px solid #ddd;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-        line-height: 32px;
-        height: 32px;
-        color: #fff;
-        cursor: pointer;
-        // border-bottom: 1px solid rgba(67,104,199,.2);
-        color: #3690ff;
-        .name{
-            display: inline-block;
-            width: 180px;
-            color: rgba(255,255,255,.7);
-            padding: 0 24px;
+            left: 20px;
+            font-size: 18px;
+            color: #fff;
+            z-index: 99;
         }
     }
 }
-.main .statistics .statistics_phone{
-    height: 50%;
-}
-.main .statistics .statistics_report{
-    height: 50%;
-}
-
 
 /***************************************************/
 // animation sunny

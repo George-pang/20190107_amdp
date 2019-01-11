@@ -10,7 +10,7 @@
     <script src="lib/echarts.min.js"></script>
     <!-- 引入echarts vintage主题 -->
     <script src="lib/vintage.js"></script>
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script> -->
     <link rel="stylesheet" href="lib/normalize.css">
     <link rel="stylesheet" href="index.css">
 </head>
@@ -25,7 +25,7 @@
                     01月07日 周一 农历十二月初二
                 </p>
                 <div class="weather_info">
-                <!-- 天气ICON -->
+                    <!-- 天气ICON -->
                     <!-- 动画：晴 -->
                     <div class="icon sunny">
                         <i class="iconfont sun">&#xe74a;</i>
@@ -68,16 +68,16 @@
                     <div class="icon common active">
                         <i class="iconfont weather_icon"></i>
                     </div>
-                <!-- 天气信息 -->
+                    <!-- 天气信息 -->
                     <div class="content">
                         <h3 class="hour" id="hour">Morning</h3>
                         <div class="degrees"><span id="temperature">- 1</span>℃</div>
                         <div class="data">
                             <h2 class="weather_status" id="weather_status">Sunny</h2>
-                            <div>最低温度: <span id="temperatureMin"></span>℃</div>
-                            <div>Wind: <span id="wind">东风3-4级</span></div>
-                            <div>Humidity: <span id="humidity">91</span></div>
-                            <div>Tide: <span id="tide">无潮汐</span></div>
+                            <div>最低溫度:&nbsp;&nbsp;&nbsp;&nbsp;<span id="temperatureMin"></span>℃</div>
+                            <div>風速:&nbsp;&nbsp;&nbsp;&nbsp;<span id="wind">东风3-4级</span></div>
+                            <div>濕度:&nbsp;&nbsp;&nbsp;&nbsp;<span id="humidity">91</span></div>
+                            <div>潮汐:&nbsp;&nbsp;&nbsp;&nbsp;<span id="tide">暫無</span></div>
                         </div>
                     </div>
                 </div>
@@ -86,12 +86,12 @@
             <!-- 恶劣天气 -->
             <div class="weather_bad">
                 <h4 class="title">
-                    恶劣天气
+                    惡劣天氣
                 </h4>
                 <ul class="item_list">
                     <li class="item">
                         <strong>1</strong>
-                        <span class="name">风暴潮警告：</span>
+                        <span class="name">風暴潮警告：</span>
                         <span class="value" id="warning_stormsurge">現時沒有風暴潮警告。</span>
                     </li>
                     <li class="item">
@@ -106,12 +106,12 @@
                     </li>
                     <li class="item">
                         <strong>4</strong>
-                        <span class="name">热带气旋警告：</span>
+                        <span class="name">熱帶氣旋警告：</span>
                         <span class="value" id="warning_cyclone">現時並無熱帶氣旋信號。</span>
                     </li>
                     <li class="item">
                         <strong>5</strong>
-                        <span class="name">强烈季候风警告：</span>
+                        <span class="name">強烈季侯風警告：</span>
                         <span class="value" id="warning_monsoon">現時沒有季候風黑球警告。</span>
                     </li>
                 </ul>
@@ -120,15 +120,18 @@
         <!-- 统计部分 -->
         <div class="statistics">
             <!--电话排队-->
-            <div class="statistics_phone" id="statisticsPhone">
-
+            <div class="statistics_phone">
+                <h3 class="title">當前電話排隊統計</h3>
+                <div class="phoneChart" id="phoneChart"></div>
             </div>
             <!-- 接报统计 -->
-            <div class="statistics_report" id="statisticsReport">
-
+            <div class="statistics_report">
+                <h3 class="title">案件接報統計</h3>
+                <div class="reportChart" id="reportChart"></div>
             </div>
         </div>
     </div>
+    <script src="function.js"></script>
 </body>
 
 </html>
