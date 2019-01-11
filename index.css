@@ -124,7 +124,6 @@ h4 {
   position: absolute;
   right: 10%;
   top: 1rem;
-  transform: translateX(-50%);
   font-size: 10rem;
   color: #ffb948;
   -webkit-animation-name: rotate;
@@ -140,7 +139,6 @@ h4 {
   position: absolute;
   right: 10%;
   top: 1.8rem;
-  transform: translateX(-50%);
   font-size: 5rem;
   color: #d89864;
   -webkit-animation-name: rotate;
@@ -165,7 +163,7 @@ h4 {
   -ms-transform: skewX(-20deg);
   transform: skewX(-20deg);
   right: 10%;
-  margin-right: 2rem;
+  margin-right: 4rem;
   top: 9rem;
   z-index: -1;
   -webkit-animation-name: sprinkle;
@@ -190,6 +188,44 @@ h4 {
   -webkit-animation-delay: 0.75s;
   animation-delay: 0.75s;
 }
+.main .weather .weather_live .heavy_rain .cloud {
+  position: absolute;
+  right: 10%;
+  top: 1rem;
+  font-size: 10rem;
+  color: #999;
+}
+.main .weather .weather_live .heavy_rain .sprinkles {
+  position: absolute;
+  -webkit-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+  right: 10%;
+  margin-right: 2rem;
+  top: 9rem;
+  z-index: -1;
+  -webkit-animation-name: sprinkle;
+  animation-name: sprinkle;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  color: #ccc;
+}
+.main .weather .weather_live .heavy_rain .sprinkles:nth-of-type(4) {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+.main .weather .weather_live .heavy_rain .sprinkles:nth-of-type(5) {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.main .weather .weather_live .heavy_rain .sprinkles:nth-of-type(6) {
+  -webkit-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
 .main .weather .weather_live .snow .cloud {
   position: absolute;
   right: 10%;
@@ -201,7 +237,7 @@ h4 {
   position: absolute;
   right: 10%;
   top: 10rem;
-  margin-right: 1rem;
+  margin-right: 4rem;
   z-index: -1;
   -webkit-animation: snowflakes 2s linear infinite;
   animation: snowflakes 2s linear infinite;
@@ -220,15 +256,68 @@ h4 {
   animation: snowflake 2s 0.2s ease-in-out infinite reverse;
   top: -20px;
 }
-.main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(3) {
+.main .weather .weather_live .heavy_snow .cloud {
+  position: absolute;
+  right: 10%;
+  top: 0;
+  font-size: 12rem;
+  color: #999;
+}
+.main .weather .weather_live .heavy_snow .snowflakes {
+  position: absolute;
+  right: 10%;
+  top: 10rem;
+  margin-right: 1rem;
+  z-index: -1;
+  -webkit-animation: snowflakes 2s linear infinite;
+  animation: snowflakes 2s linear infinite;
+}
+.main .weather .weather_live .heavy_snow .snowflakes .snowflake {
+  position: absolute;
+  font-size: 2rem;
+  color: #fff;
+}
+.main .weather .weather_live .heavy_snow .snowflakes .snowflake:nth-of-type(1) {
+  -webkit-animation: snowflake 2s ease-in-out infinite;
+  animation: snowflake 2s ease-in-out infinite;
+  top: -30px;
+  right: 5rem;
+}
+.main .weather .weather_live .heavy_snow .snowflakes .snowflake:nth-of-type(2) {
+  -webkit-animation: snowflake 2s 0.2s ease-in-out infinite reverse;
+  animation: snowflake 2s 0.2s ease-in-out infinite reverse;
+  top: -10px;
+  right: 7rem;
+}
+.main .weather .weather_live .heavy_snow .snowflakes .snowflake:nth-of-type(3) {
   -webkit-animation: snowflake 2s 0.2s ease-in-out infinite;
   animation: snowflake 2s 0.2s ease-in-out infinite;
-  top: 10px;
+  top: 0;
+  right: 3rem;
 }
-.main .weather .weather_live .snow .snowflakes .snowflake:nth-of-type(4) {
+.main .weather .weather_live .heavy_snow .snowflakes .snowflake:nth-of-type(4) {
   -webkit-animation: snowflake 2s 0.4s ease-in-out infinite reverse;
   animation: snowflake 2s 0.4s ease-in-out infinite reverse;
   top: -30px;
+  right: 2rem;
+}
+.main .weather .weather_live .heavy_snow .snowflakes .snowflake:nth-of-type(5) {
+  -webkit-animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+  animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+  top: -20px;
+  right: 6rem;
+}
+.main .weather .weather_live .heavy_snow .snowflakes .snowflake:nth-of-type(6) {
+  -webkit-animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+  animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+  top: -35px;
+  right: 8rem;
+}
+.main .weather .weather_live .heavy_snow .snowflakes .snowflake:nth-of-type(7) {
+  -webkit-animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+  animation: snowflake 2s 0.4s ease-in-out infinite reverse;
+  top: -15px;
+  right: 4rem;
 }
 .main .weather .weather_live .cloudy .icon i {
   position: absolute;
@@ -256,7 +345,7 @@ h4 {
   font-size: 10rem;
   color: rgba(255, 255, 255, 0.8);
 }
-.main .weather .weather_live .ray .thunder {
+.main .weather .weather_live .thundershowers .thunder {
   color: #333;
   position: absolute;
   height: 60px;
@@ -269,7 +358,7 @@ h4 {
   box-shadow: #666 65px -15px 0 -5px, #666 25px -25px, #666 30px 10px, #666 60px 15px 0 -10px, #666 85px 5px 0 -5px;
   animation: cloudy 5s ease-in-out infinite;
 }
-.main .weather .weather_live .ray .thunder:before {
+.main .weather .weather_live .thundershowers .thunder:before {
   content: "";
   position: absolute;
   top: 60px;
@@ -282,28 +371,46 @@ h4 {
   transform-origin: center -50px;
   animation: stormy_thunder 1.5s steps(1, end) infinite;
 }
-.main .weather .weather_live .ray .thunder:after {
+.main .weather .weather_live .thundershowers .thunder:after {
   content: "";
   position: absolute;
-  top: 120px;
-  left: 64px;
-  height: 15px;
-  width: 120px;
-  background: rgba(0, 0, 0, 0.5);
+  width: 3px;
+  height: 6px;
+  top: 30%;
+  left: 100%;
+  background: transparent;
   border-radius: 50%;
-  z-index: -1;
-  transform: translate(-50%, -50%);
-  animation: cloudy_shadow 5s ease-in-out infinite;
+  animation: rainy_rain .7s infinite linear;
 }
 @keyframes cloudy {
   50% {
     transform: translate(-50%, -30px);
   }
 }
-@keyframes cloudy_shadow {
+@keyframes rainy_rain {
+  0% {
+    box-shadow: rgba(0, 0, 0, 0) -10px 30px, rgba(0, 0, 0, 0) 40px 40px, rgba(0, 0, 0, 0.3) -50px 75px, rgba(0, 0, 0, 0.3) 55px 50px, rgba(0, 0, 0, 0.3) -18px 100px, rgba(0, 0, 0, 0.3) 12px 95px, rgba(0, 0, 0, 0.3) -31px 45px, rgba(0, 0, 0, 0.3) 30px 35px;
+  }
+  25% {
+    box-shadow: rgba(0, 0, 0, 0.3) -10px 45px, rgba(0, 0, 0, 0.3) 40px 60px, rgba(0, 0, 0, 0.3) -50px 90px, rgba(0, 0, 0, 0.3) 55px 65px, rgba(0, 0, 0, 0) -18px 120px, rgba(0, 0, 0, 0) 12px 120px, rgba(0, 0, 0, 0.3) -31px 70px, rgba(0, 0, 0, 0.3) 30px 60px;
+  }
+  26% {
+    box-shadow: rgba(0, 0, 0, 0.3) -10px 45px, rgba(0, 0, 0, 0.3) 40px 60px, rgba(0, 0, 0, 0.3) -50px 90px, rgba(0, 0, 0, 0.3) 55px 65px, rgba(0, 0, 0, 0) -18px 40px, rgba(0, 0, 0, 0) 12px 20px, rgba(0, 0, 0, 0.3) -31px 70px, rgba(0, 0, 0, 0.3) 30px 60px;
+  }
   50% {
-    transform: translate(-50%, 0) scale(0.8);
-    background: rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.3) -10px 70px, rgba(0, 0, 0, 0.3) 40px 80px, rgba(0, 0, 0, 0) -50px 100px, rgba(0, 0, 0, 0.3) 55px 80px, rgba(0, 0, 0, 0.3) -18px 60px, rgba(0, 0, 0, 0.3) 12px 45px, rgba(0, 0, 0, 0.3) -31px 95px, rgba(0, 0, 0, 0.3) 30px 85px;
+  }
+  51% {
+    box-shadow: rgba(0, 0, 0, 0.3) -10px 70px, rgba(0, 0, 0, 0.3) 40px 80px, rgba(0, 0, 0, 0) -50px 45px, rgba(0, 0, 0, 0.3) 55px 80px, rgba(0, 0, 0, 0.3) -18px 60px, rgba(0, 0, 0, 0.3) 12px 45px, rgba(0, 0, 0, 0.3) -31px 95px, rgba(0, 0, 0, 0.3) 30px 85px;
+  }
+  75% {
+    box-shadow: rgba(0, 0, 0, 0.3) -10px 95px, rgba(0, 0, 0, 0.3) 40px 100px, rgba(0, 0, 0, 0.3) -50px 60px, rgba(0, 0, 0, 0) 55px 95px, rgba(0, 0, 0, 0.3) -18px 80px, rgba(0, 0, 0, 0.3) 12px 70px, rgba(0, 0, 0, 0) -31px 120px, rgba(0, 0, 0, 0) 30px 110px;
+  }
+  76% {
+    box-shadow: rgba(0, 0, 0, 0.3) -10px 95px, rgba(0, 0, 0, 0.3) 40px 100px, rgba(0, 0, 0, 0.3) -50px 60px, rgba(0, 0, 0, 0) 55px 35px, rgba(0, 0, 0, 0.3) -18px 80px, rgba(0, 0, 0, 0.3) 12px 70px, rgba(0, 0, 0, 0) -31px 25px, rgba(0, 0, 0, 0) 30px 15px;
+  }
+  100% {
+    box-shadow: rgba(0, 0, 0, 0) -10px 120px, rgba(0, 0, 0, 0) 40px 120px, rgba(0, 0, 0, 0.3) -50px 75px, rgba(0, 0, 0, 0.3) 55px 50px, rgba(0, 0, 0, 0.3) -18px 100px, rgba(0, 0, 0, 0.3) 12px 95px, rgba(0, 0, 0, 0.3) -31px 45px, rgba(0, 0, 0, 0.3) 30px 35px;
   }
 }
 @keyframes stormy_thunder {

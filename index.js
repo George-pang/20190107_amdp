@@ -1,7 +1,7 @@
 /* 入口函数 */
 $(function () {
     // 窗口大小改变触发页面重载
-    $(window).resize(function(){
+    $(window).resize(function () {
         location.reload();
     });
     /* ********************************************************************************************************* */
@@ -20,7 +20,7 @@ $(function () {
         // 数据渲染
         renderLiveWeather(data);
         getInstantTime();
-        setInterval(getInstantTime,1000);
+        setInterval(getInstantTime, 1000);
         //function：解析后台传入的实时天气数据 渲染页面---参数：后台传入JSON数据
         function renderLiveWeather(data) {
             // JSON字符串转JSON对象
@@ -175,19 +175,22 @@ $(function () {
                 $(".sunny").addClass("active").siblings(".icon").removeClass("active");
             } else if (weatherDesc == "多雲" || weatherDesc == "多云") {
                 $(".cloudy").addClass("active").siblings(".icon").removeClass("active");
-            } else if (weatherDesc == "雨" || weatherDesc.indexOf("雨") != -1) {
+            } else if (weatherDesc == "雨") {
                 $(".rainy").addClass("active").siblings(".icon").removeClass("active");
-            } else if (weatherDesc == "雪" || weatherDesc.indexOf("雪") != -1) {
-                $(".snow").addClass("active").siblings(".icon").removeClass("active");
             } else if (weatherDesc == "雷雨") {
-                $(".ray").addClass("active").siblings(".icon").removeClass("active");
+                $(".thundershowers").addClass("active").siblings(".icon").removeClass("active");
+            } else if (weatherDesc == "大雨" || weatherDesc.indexOf("雨") != -1) {
+                $(".heavy_rain").addClass("active").siblings(".icon").removeClass("active");
+            } else if (weatherDesc == "雪") {
+                $(".snow").addClass("active").siblings(".icon").removeClass("active");
+            } else if (weatherDesc == "大雪") {
+                $(".heavy_snow").addClass("active").siblings(".icon").removeClass("active");
             } else if (weatherDesc == "密雲" || weatherDesc == "密云") {
                 $(".overcastDay").addClass("active").siblings(".icon").removeClass("active");
             } else {
                 $(".weather_info .common").addClass(".active").siblings(".icon").removeClass("active");
                 $(".weather_info .common").find("i").html("&#xe694;"); //待拓展--对应不同icon 使用switch语句
             }
-
         }
         //function：星期日对应英文转中文繁体
         function getWeekDayZh(weekday) {
@@ -238,10 +241,10 @@ $(function () {
             // $("#hour").html(h+":"+m+":"+s);
         }
         // function：检查获取的时分秒是否小于10
-        function check(i){
+        function check(i) {
             //方法一，用三元运算符
             var num;
-            i<10?num="0"+i:num=i;
+            i < 10 ? num = "0" + i : num = i;
             return num;
         }
 
@@ -305,7 +308,7 @@ $(function () {
                 name: '電話排隊',
                 type: 'gauge',
                 // min:0,
-                max:20,    //仪表盘最大刻度
+                max: 20, //仪表盘最大刻度
                 //仪表盘详情，用于显示数据。
                 detail: {
                     formatter: '{value}'
@@ -313,8 +316,8 @@ $(function () {
                 data: [{
                     value: 10,
                     name: '當前電話排隊數',
-                    textStyle:{
-                        fontSize:12,
+                    textStyle: {
+                        fontSize: 12,
                     },
                 }],
                 //仪表盘轴线相关配置
@@ -339,20 +342,20 @@ $(function () {
                 pointer: {
                     length: '60%',
                 },
-                title: {				// 仪表盘标题。
-	            	show: true,				// 是否显示标题,默认 true。
-	            	offsetCenter: [0,"80%"],//相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
-                    fontSize: 16,			// 文字的字体大小,默认 15。
-                    color: "#fff",	        //仪表盘标题字体颜色
-	            },
+                title: { // 仪表盘标题。
+                    show: true, // 是否显示标题,默认 true。
+                    offsetCenter: [0, "80%"], //相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
+                    fontSize: 16, // 文字的字体大小,默认 15。
+                    color: "#fff", //仪表盘标题字体颜色
+                },
                 // itemStyle: {			// 仪表盘指针样式。
-	            // 	color: "auto",			// 指针颜色，默认(auto)取数值所在的区间的颜色
-	            // 	opacity: 1,				// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
-	            // 	borderWidth: 0,			// 描边线宽,默认 0。为 0 时无描边。
-	            // 	borderType: "solid",	// 柱条的描边类型，默认为实线，支持 'solid', 'dashed', 'dotted'。
-	            // 	borderColor: "#000",	// 图形的描边颜色,默认 "#000"。支持的颜色格式同 color，不支持回调函数。
-	            // 	shadowBlur: 10,			// (发光效果)图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。 
-			    //     shadowColor: "#fff",	// 阴影颜色。支持的格式同color。
+                // 	color: "auto",			// 指针颜色，默认(auto)取数值所在的区间的颜色
+                // 	opacity: 1,				// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
+                // 	borderWidth: 0,			// 描边线宽,默认 0。为 0 时无描边。
+                // 	borderType: "solid",	// 柱条的描边类型，默认为实线，支持 'solid', 'dashed', 'dotted'。
+                // 	borderColor: "#000",	// 图形的描边颜色,默认 "#000"。支持的颜色格式同 color，不支持回调函数。
+                // 	shadowBlur: 10,			// (发光效果)图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。 
+                //     shadowColor: "#fff",	// 阴影颜色。支持的格式同color。
                 // },
 
                 //刻度样式
@@ -400,8 +403,8 @@ $(function () {
                 orient: 'vertical',
                 x: 'right',
                 data: ['已結束案件', '待處理案件', '處理中案件'],
-                textStyle:{
-                    color:"#fff",
+                textStyle: {
+                    color: "#fff",
                 }
             },
             series: [{

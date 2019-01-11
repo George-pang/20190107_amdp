@@ -187,25 +187,27 @@
  }
  //function：根据天气描述值显示对应的天气动画或icon---待拓展（是否每一个都显示对应的ICON或动画）
  function changeWeatherIcon(weatherDesc) {
-     if (weatherDesc == "天晴" || weatherDesc.indexOf("晴") != -1) {
-         $(".sunny").addClass("active").siblings(".icon").removeClass("active");
-     } else if (weatherDesc == "多雲" || weatherDesc == "多云") {
-         $(".cloudy").addClass("active").siblings(".icon").removeClass("active");
-     } else if (weatherDesc == "雨" || weatherDesc.indexOf("雨") != -1) {
-         $(".rainy").addClass("active").siblings(".icon").removeClass("active");
-     } else if (weatherDesc == "雪" || weatherDesc.indexOf("雪") != -1) {
-         $(".snow").addClass("active").siblings(".icon").removeClass("active");
-     } else if (weatherDesc == "雷雨") {
-         $(".ray").addClass("active").siblings(".icon").removeClass("active");
-     } else if (weatherDesc == "密雲" || weatherDesc == "密云") {
-         $(".overcastDay").addClass("active").siblings(".icon").removeClass("active");
-     } else {
-         $(".weather_info .common").addClass(".active").siblings(".icon").removeClass(
-             "active");
-         $(".weather_info .common").find("i").html("&#xe694;"); //待拓展--对应不同icon 使用switch语句
-     }
-
- }
+    if (weatherDesc == "天晴" || weatherDesc.indexOf("晴") != -1) {
+        $(".sunny").addClass("active").siblings(".icon").removeClass("active");
+    } else if (weatherDesc == "多雲" || weatherDesc == "多云") {
+        $(".cloudy").addClass("active").siblings(".icon").removeClass("active");
+    } else if (weatherDesc == "雨") {
+        $(".rainy").addClass("active").siblings(".icon").removeClass("active");
+    } else if (weatherDesc == "雷雨") {
+        $(".thundershowers").addClass("active").siblings(".icon").removeClass("active");
+    } else if (weatherDesc == "大雨" || weatherDesc.indexOf("雨") != -1) {
+        $(".heavy_rain").addClass("active").siblings(".icon").removeClass("active");
+    } else if (weatherDesc == "雪") {
+        $(".snow").addClass("active").siblings(".icon").removeClass("active");
+    } else if (weatherDesc == "大雪") {
+        $(".heavy_snow").addClass("active").siblings(".icon").removeClass("active");
+    } else if (weatherDesc == "密雲" || weatherDesc == "密云") {
+        $(".overcastDay").addClass("active").siblings(".icon").removeClass("active");
+    } else {
+        $(".weather_info .common").addClass(".active").siblings(".icon").removeClass("active");
+        $(".weather_info .common").find("i").html("&#xe694;"); //待拓展--对应不同icon 使用switch语句
+    }
+}
  //function：星期日对应英文转中文繁体
  function getWeekDayZh(weekday) {
      var str;
