@@ -161,25 +161,24 @@ $(function () {
         //function：控制实时天气区域good、bad预定类背景切换
         function changeBgImg(weatherDesc) {
             if (weatherDesc != "Null") {
-                if (weatherDesc.indexOf("晴") != -1 || weatherDesc == "多雲" || weatherDesc == "多云") {
+                if (weatherDesc.indexOf("晴") != -1 || weatherDesc == "多雲" || weatherDesc == "多云"||weatherDesc=="乾燥") {
                     $(".weather_info").removeClass("bad").addClass("good");
                 } else {
                     $(".weather_info").removeClass("good").addClass("bad");
                 }
             }
-
         }
         //function：根据天气描述值显示对应的天气动画或icon---待拓展（是否每一个都显示对应的ICON或动画）
         function changeWeatherIcon(weatherDesc) {
-            if (weatherDesc == "天晴" || weatherDesc.indexOf("晴") != -1) {
+            if (weatherDesc == "天晴" || weatherDesc.indexOf("晴") != -1||weatherDesc=="乾燥") {
                 $(".sunny").addClass("active").siblings(".icon").removeClass("active");
             } else if (weatherDesc == "多雲" || weatherDesc == "多云") {
                 $(".cloudy").addClass("active").siblings(".icon").removeClass("active");
-            } else if (weatherDesc == "雨") {
+            } else if (weatherDesc == "雨" || weatherDesc == "毛毛雨" || weatherDesc == "驟雨") {
                 $(".rainy").addClass("active").siblings(".icon").removeClass("active");
-            } else if (weatherDesc == "雷雨") {
+            } else if (weatherDesc == "雷雨" || weatherDesc == "雷暴") {
                 $(".thundershowers").addClass("active").siblings(".icon").removeClass("active");
-            } else if (weatherDesc == "大雨" || weatherDesc.indexOf("雨") != -1) {
+            } else if (weatherDesc == "大雨" || weatherDesc == "大驟雨") {
                 $(".heavy_rain").addClass("active").siblings(".icon").removeClass("active");
             } else if (weatherDesc == "雪") {
                 $(".snow").addClass("active").siblings(".icon").removeClass("active");
@@ -187,9 +186,24 @@ $(function () {
                 $(".heavy_snow").addClass("active").siblings(".icon").removeClass("active");
             } else if (weatherDesc == "密雲" || weatherDesc == "密云") {
                 $(".overcastDay").addClass("active").siblings(".icon").removeClass("active");
-            } else {
-                $(".weather_info .common").addClass(".active").siblings(".icon").removeClass("active");
-                $(".weather_info .common").find("i").html("&#xe694;"); //待拓展--对应不同icon 使用switch语句
+            } else if (weatherDesc == "浮塵") {
+                $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+                $(".weather_info .common_img").find("i").append('<img src="images/haze.png">');
+            } else if (weatherDesc == "霧" || weatherDesc == "煙霞" || weatherDesc == "薄霧" || weatherDesc == "煙幕") {
+                $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+                $(".weather_info .common_img").find("i").append('<img src="images/fog.png">');
+            } else if (weatherDesc == "冰雹") {
+                $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+                $(".weather_info .common_img").find("i").append('<img src="images/hail.png">');
+            } else if (weatherDesc == "大風") {
+                $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+                $(".weather_info .common_img").find("i").append('<img src="images/gale.png">');
+            } else if (weatherDesc == "水龍捲" || weatherDesc.indexOf("暴") != -1) {
+                $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+                $(".weather_info .common_img").find("i").append('<img src="images/sand_storm.png">');
+            } else {    //潮湿
+                $(".weather_info .common").addClass("active").siblings(".icon").removeClass("active");
+                $(".weather_info .common").find("i").html("&#xe601;"); //待拓展--对应不同icon 使用switch语句
             }
         }
         //function：星期日对应英文转中文繁体
@@ -293,7 +307,7 @@ $(function () {
     (function () {
 
         // 基于准备好的dom，初始化echarts实例
-        var myPhoneChart = echarts.init(document.getElementById('phoneChart'), 'vintage');
+        var myPhoneChart = echarts.init(document.getElementById('phoneChart'));
         //配置项
         var option = {
             // title: {
@@ -307,17 +321,19 @@ $(function () {
             series: [{
                 name: '電話排隊',
                 type: 'gauge',
+                radius:'85%',//仪表盘半径
                 // min:0,
                 max: 20, //仪表盘最大刻度
                 //仪表盘详情，用于显示数据。
                 detail: {
-                    formatter: '{value}'
+                    formatter: '{value}',
+                    fontSize:32,
                 },
                 data: [{
                     value: 10,
                     name: '當前電話排隊數',
                     textStyle: {
-                        fontSize: 12,
+                        fontSize: 28,
                     },
                 }],
                 //仪表盘轴线相关配置
@@ -327,25 +343,29 @@ $(function () {
                         width: 20,
                         shadowBlur: 0,
                         // opacity:.8,
-                        //仪表盘的轴线可以被分成不同颜色的多段。每段的结束位置和颜色可以通过一个数组来表示。
-                        // color: [
-                        //     [0.3, '#67e0e3'],
-                        //     [0.7, '#37a2da'],
-                        //     [1, '#fd666d']
-                        // ]
+                        // 仪表盘的轴线可以被分成不同颜色的多段。每段的结束位置和颜色可以通过一个数组来表示。
+                        color: [
+                            [0.3, '#61a0a8'],
+                            [0.7, '#919e8b'],
+                            [1, '#d7ab82']
+                        ]
                     }
+                },
+                // 刻度标签-刻度值
+                axisLabel:{
+                    fontSize:20,
                 },
                 //分隔线样式
                 splitLine: {
                     length: 20,
                 },
                 pointer: {
-                    length: '60%',
+                    length: '50%',
                 },
                 title: { // 仪表盘标题。
                     show: true, // 是否显示标题,默认 true。
-                    offsetCenter: [0, "80%"], //相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
-                    fontSize: 16, // 文字的字体大小,默认 15。
+                    offsetCenter: [0, "95%"], //相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
+                    fontSize: 24, // 文字的字体大小,默认 15。
                     color: "#fff", //仪表盘标题字体颜色
                 },
                 // itemStyle: {			// 仪表盘指针样式。
@@ -356,15 +376,6 @@ $(function () {
                 // 	borderColor: "#000",	// 图形的描边颜色,默认 "#000"。支持的颜色格式同 color，不支持回调函数。
                 // 	shadowBlur: 10,			// (发光效果)图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。 
                 //     shadowColor: "#fff",	// 阴影颜色。支持的格式同color。
-                // },
-
-                //刻度样式
-                // axisTick:{
-                //     show:false,
-                // },
-                //刻度标签--刻度值
-                // axisLabel:{
-                //     show:false
                 // },
             }]
         };
@@ -399,23 +410,24 @@ $(function () {
                 trigger: 'item',
                 formatter: "{a} <br/>{b}: {c} ({d}%)",
             },
-            legend: {
-                orient: 'vertical',
-                x: 'right',
-                data: ['已結束案件', '待處理案件', '處理中案件'],
-                textStyle: {
-                    color: "#fff",
-                }
-            },
+            // legend: {
+            //     orient: 'vertical',
+            //     x: 'right',
+            //     data: ['已結束案件', '待處理案件', '處理中案件'],
+            //     textStyle: {
+            //         color: "#fff",
+            //     }
+            // },
             series: [{
                     name: '接報統計',
                     type: 'pie',
                     // selectedMode: 'single',
                     radius: [0, '50%'],
-                    label: {
+                    label: {//饼图图形上的文本标签，可用于说明图形的一些数据信息
                         normal: {
                             position: 'inside',
                             formatter: '{b}：{c}\n\n{d}%',
+                            fontSize:18,
                             // rich: {
                             //     b: {
                             //         color:'#fff',
@@ -448,24 +460,30 @@ $(function () {
                 {
                     name: '實際接報統計',
                     type: 'pie',
-                    radius: ['55%', '70%'],
+                    radius: ['60%', '70%'],
                     label: {
                         normal: {
                             padding: 5,
                             position: 'outside',
                             align: 'right',
                             formatter: '{b|{b}：}\n{c}  {per|{d}%}',
-                            backgroundColor: '#eee',
+                            backgroundColor:'rgba(255,255,255,.8)',
                             borderColor: '#aaa',
                             borderWidth: 1,
                             borderRadius: 4,
+                            fontSize:18,
+                            color:'#d87c7c',
                             // position: ['50%', '50%'],
                             rich: {
                                 b: {
-                                    fontSize: 16,
+                                    fontSize: 20,
                                     lineHeight: 32,
+                                    // color:'#d87c7c',
+                                    color:'#d87c7c',
+                                    align:"left",
                                 },
                                 per: {
+                                    fontSize:18,
                                     color: '#eee',
                                     backgroundColor: '#334455',
                                     padding: [2, 4],
@@ -483,15 +501,15 @@ $(function () {
                     },
                     data: [{
                             value: 310,
-                            name: '待處理案件'
+                            name: '待處理'
                         },
                         {
                             value: 234,
-                            name: '處理中案件'
+                            name: '處理中'
                         },
                         {
                             value: 335,
-                            name: '已結束案件'
+                            name: '已結束'
                         },
                     ]
                 }

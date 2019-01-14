@@ -8,7 +8,7 @@
     <title>澳门大屏</title>
     <script src="lib/jquery.min.js"></script>
     <script src="lib/echarts.min.js"></script>
-    <!-- 引入echarts vintage主题 -->
+    <!-- 引入echarts 配色主题 -->
     <script src="lib/vintage.js"></script>
     <script src="index.js"></script>
     <link rel="stylesheet" href="lib/normalize.css">
@@ -83,8 +83,14 @@
                         <div class="overcast">
                         </div>
                     </div>
+                    <!-- 显式天气静态图-->
+                    <div class="icon common_img">
+                        <i class="iconfont weatherImg">
+                            <!-- <img src="images/fog.png" alt=""> -->
+                        </i>
+                    </div>
                     <!-- 除常见天气动画外，其他只切换天气icon类 -->
-                    <div class="icon common active">
+                    <div class="icon common">
                         <i class="iconfont weather_icon"></i>
                     </div>
                     <!-- 天气信息 -->
@@ -150,7 +156,7 @@
             </div>
         </div>
     </div>
-    <script src="function.js"></script>
+    <!-- <script src="function.js"></script> -->
 </body>
 
 </html>

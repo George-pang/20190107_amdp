@@ -22,6 +22,7 @@ li {
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 strong,
 h3,
@@ -33,11 +34,13 @@ h4 {
 }
 .main .weather {
   float: left;
-  width: 60%;
+  width: 55%;
   height: 100%;
-  background-color: #e3bb88;
+  background-color: #a1b8ca;
+  background-image: linear-gradient(top, #485663, #a1b8ca);
   background-image: -webkit-linear-gradient(top, #485663, #a1b8ca);
   background-image: -moz-linear-gradient(top, #485663, #a1b8ca);
+  background-image: -o-linear-gradient(top, #485663, #a1b8ca);
   z-index: 2;
 }
 .main .weather .weather_live {
@@ -53,10 +56,10 @@ h4 {
   padding: 20px 0 0 20px;
   width: 300px;
   width: 100%;
-  font-size: 16px;
+  font-size: 1.8rem;
   color: #fff;
   text-shadow: 1px 1px 1px #555;
-  line-height: 1em;
+  line-height: 1.8rem;
   background-color: transparent;
   z-index: 3;
 }
@@ -69,8 +72,8 @@ h4 {
   position: absolute;
   display: none;
   top: 1rem;
-  left: 1rem;
-  width: 50%;
+  left: 0;
+  width: 55%;
   height: 50px;
   -webkit-transform: translateY(50px);
   -ms-transform: translateY(50px);
@@ -82,7 +85,7 @@ h4 {
 .main .weather .weather_live .weather_info .content {
   top: 5rem;
   right: 0;
-  width: 40%;
+  width: 45%;
   position: absolute;
   color: white;
 }
@@ -90,8 +93,8 @@ h4 {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.4);
   margin-bottom: 0;
-  font-size: 1.8rem;
-  line-height: 3rem;
+  font-size: 2.5rem;
+  line-height: 4rem;
   font-weight: 700;
 }
 .main .weather .weather_live .weather_info .content .degrees {
@@ -101,30 +104,34 @@ h4 {
   line-height: 5rem;
 }
 .main .weather .weather_live .weather_info .content .degrees #temperature {
-  font-size: 4rem;
+  font-size: 5rem;
 }
 .main .weather .weather_live .weather_info .content .data {
-  font-size: 1.1rem;
-  line-height: 1.5rem;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
 }
 .main .weather .weather_live .weather_info .content .weather_status {
-  font-size: 1.8rem;
-  line-height: 2.5rem;
-  margin: .5rem 0;
+  font-size: 2.2rem;
+  line-height: 3.2rem;
+  margin: .6rem 0;
 }
 .main .weather .weather_live .good {
+  background-image: linear-gradient(top, #0d68bc, #72ade0);
   background-image: -webkit-linear-gradient(top, #0d68bc, #72ade0);
   background-image: -moz-linear-gradient(top, #a1caf0, #72ade0);
+  background-image: -o-linear-gradient(top, #a1caf0, #72ade0);
 }
 .main .weather .weather_live .bad {
+  background-image: linear-gradient(top, #485663, #a1b8ca);
   background-image: -webkit-linear-gradient(top, #485663, #a1b8ca);
   background-image: -moz-linear-gradient(top, #485663, #a1b8ca);
+  background-image: -o-linear-gradient(top, #a1caf0, #72ade0);
 }
 .main .weather .weather_live .sunny .sun {
   position: absolute;
   right: 10%;
   top: 1rem;
-  font-size: 10rem;
+  font-size: 15rem;
   color: #ffb948;
   -webkit-animation-name: rotate;
   animation-name: rotate;
@@ -139,7 +146,7 @@ h4 {
   position: absolute;
   right: 10%;
   top: 1.8rem;
-  font-size: 5rem;
+  font-size: 8rem;
   color: #d89864;
   -webkit-animation-name: rotate;
   animation-name: rotate;
@@ -154,7 +161,7 @@ h4 {
   position: absolute;
   right: 10%;
   top: 1rem;
-  font-size: 10rem;
+  font-size: 15rem;
   color: #ccc;
 }
 .main .weather .weather_live .rainy .sprinkles {
@@ -163,8 +170,8 @@ h4 {
   -ms-transform: skewX(-20deg);
   transform: skewX(-20deg);
   right: 10%;
-  margin-right: 4rem;
-  top: 9rem;
+  margin-right: 5rem;
+  top: 10rem;
   z-index: -1;
   -webkit-animation-name: sprinkle;
   animation-name: sprinkle;
@@ -192,7 +199,7 @@ h4 {
   position: absolute;
   right: 10%;
   top: 1rem;
-  font-size: 10rem;
+  font-size: 15rem;
   color: #999;
 }
 .main .weather .weather_live .heavy_rain .sprinkles {
@@ -201,7 +208,7 @@ h4 {
   -ms-transform: skewX(-20deg);
   transform: skewX(-20deg);
   right: 10%;
-  margin-right: 2rem;
+  margin-right: 3rem;
   top: 9rem;
   z-index: -1;
   -webkit-animation-name: sprinkle;
@@ -230,14 +237,14 @@ h4 {
   position: absolute;
   right: 10%;
   top: 0;
-  font-size: 12rem;
+  font-size: 15rem;
   color: #ccc;
 }
 .main .weather .weather_live .snow .snowflakes {
   position: absolute;
   right: 10%;
   top: 10rem;
-  margin-right: 4rem;
+  margin-right: 5rem;
   z-index: -1;
   -webkit-animation: snowflakes 2s linear infinite;
   animation: snowflakes 2s linear infinite;
@@ -260,14 +267,14 @@ h4 {
   position: absolute;
   right: 10%;
   top: 0;
-  font-size: 12rem;
+  font-size: 15rem;
   color: #999;
 }
 .main .weather .weather_live .heavy_snow .snowflakes {
   position: absolute;
   right: 10%;
   top: 10rem;
-  margin-right: 1rem;
+  margin-right: 2rem;
   z-index: -1;
   -webkit-animation: snowflakes 2s linear infinite;
   animation: snowflakes 2s linear infinite;
@@ -327,7 +334,7 @@ h4 {
   right: 10%;
   top: 2rem;
   transform: translateX(-50%);
-  font-size: 5rem;
+  font-size: 8rem;
   color: #d89864;
   -webkit-animation-name: rotate;
   animation-name: rotate;
@@ -342,7 +349,7 @@ h4 {
   position: absolute;
   right: 10%;
   top: 1.5rem;
-  font-size: 10rem;
+  font-size: 15rem;
   color: rgba(255, 255, 255, 0.8);
 }
 .main .weather .weather_live .thundershowers .thunder {
@@ -351,18 +358,17 @@ h4 {
   height: 60px;
   width: 60px;
   top: 8rem;
-  right: 25%;
+  right: 40%;
   background: #666;
-  transform: translate(-50%, -50%);
+  transform: scale(1.5) translate(-50%, -50%);
   border-radius: 50%;
   box-shadow: #666 65px -15px 0 -5px, #666 25px -25px, #666 30px 10px, #666 60px 15px 0 -10px, #666 85px 5px 0 -5px;
-  animation: cloudy 5s ease-in-out infinite;
 }
 .main .weather .weather_live .thundershowers .thunder:before {
   content: "";
   position: absolute;
-  top: 60px;
-  left: 60px;
+  top: 80px;
+  left: 80px;
   border-left: 0px solid transparent;
   border-right: 8px solid transparent;
   border-top: 38px solid yellow;
@@ -381,11 +387,6 @@ h4 {
   background: transparent;
   border-radius: 50%;
   animation: rainy_rain .7s infinite linear;
-}
-@keyframes cloudy {
-  50% {
-    transform: translate(-50%, -30px);
-  }
 }
 @keyframes rainy_rain {
   0% {
@@ -436,9 +437,10 @@ h4 {
   width: 3px;
   height: 6px;
   top: 6rem;
-  right: 25%;
+  right: 40%;
   background: #CCCCCC;
   border-radius: 50%;
+  transform: scale(1.5);
 }
 .main .weather .weather_live .overcastDay .overcast:before {
   content: "";
@@ -448,10 +450,10 @@ h4 {
   width: 60px;
   top: 30px;
   left: -40px;
-  background: #CCC;
+  background: #bbb;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  box-shadow: #CCC 65px -15px 0 -5px, #CCC 25px -25px, #CCC 30px 10px, #CCC 60px 15px 0 -10px, #CCC 85px 5px 0 -5px;
+  box-shadow: #bbb 65px -15px 0 -5px, #bbb 25px -25px, #bbb 30px 10px, #bbb 60px 15px 0 -10px, #bbb 85px 5px 0 -5px;
   animation: cloudy 5s ease-in-out infinite;
 }
 .main .weather .weather_live .overcastDay .overcast:after {
@@ -484,6 +486,14 @@ h4 {
     background: rgba(0, 0, 0, 0.5);
   }
 }
+.main .weather .weather_live .common_img .weatherImg {
+  position: absolute;
+  top: 2rem;
+  right: 10%;
+}
+.main .weather .weather_live .common_img .weatherImg > img {
+  width: 15rem;
+}
 .main .weather .weather_live .common .weather_icon {
   position: absolute;
   top: 2rem;
@@ -491,8 +501,11 @@ h4 {
   font-size: 8rem;
   color: #CCC;
 }
+.main .weather .weather_live .active {
+  display: block;
+}
 .main .weather .weather_bad {
-  background: rgba(29, 51, 121, 0.5);
+  background-color: rgba(2, 23, 79, 0.6);
   height: 36%;
   color: #fff;
   overflow: hidden;
@@ -504,7 +517,7 @@ h4 {
   padding: 0 20px;
   color: rgba(255, 255, 255, 0.8);
   text-align: left;
-  font-size: 16px;
+  font-size: 1.8rem;
 }
 .main .weather .weather_bad .item_list {
   padding: 12px 20px;
@@ -512,21 +525,22 @@ h4 {
 .main .weather .weather_bad .item {
   border-bottom: 1px solid #ddd;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  line-height: 32px;
-  height: 32px;
-  color: #fff;
+  line-height: 40px;
+  height: 40px;
   cursor: pointer;
-  color: #3690ff;
+  font-size: 1.6rem;
+  color: #02d9fa;
 }
 .main .weather .weather_bad .item .name {
   display: inline-block;
-  width: 180px;
+  min-width: 250px;
   color: rgba(255, 255, 255, 0.7);
-  padding: 0 24px;
+  padding: 0 20px;
+  color: #fff;
 }
 .main .statistics {
   float: left;
-  width: 40%;
+  width: 45%;
   height: 100%;
 }
 .main .statistics .statistics_phone {
@@ -541,7 +555,7 @@ h4 {
   transform: translateX(-50%);
   height: 100%;
   width: 80%;
-  padding-top: 20px;
+  padding-top: 45px;
 }
 .main .statistics .statistics_report {
   position: relative;
@@ -557,7 +571,7 @@ h4 {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: #fff;
   z-index: 99;
 }

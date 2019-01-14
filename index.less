@@ -21,11 +21,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 ul,li{
     list-style: none;
 }
 html,body{
     height: 100%;
+    overflow-x:hidden;
 }
 strong,h3,h4{
     font-weight: 400;
@@ -35,11 +37,14 @@ strong,h3,h4{
     height: 100%;
     .weather{
         float: left;
-        width: 60%;
+        width: 55%;
         height: 100%;
-        background-color: #e3bb88;
+        // background-color: #e3bb88;
+        background-color: rgb(161, 184, 202);
+        background-image: linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
         background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
         background-image: -moz-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));//兼容火狐
+        background-image: -o-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));//兼容opera
         z-index: 2;
         // opacity: 0;
         .weather_live{
@@ -56,10 +61,10 @@ strong,h3,h4{
                 padding: 20px 0 0 20px;
                 width: 300px;
                 width: 100%;
-                font-size: 16px;
+                font-size: 1.8rem;
                 color: #fff;
                 text-shadow: 1px 1px 1px #555;
-                line-height: 1em;
+                line-height: 1.8rem;
                 background-color: transparent;
                 z-index: 3;
         
@@ -74,8 +79,9 @@ strong,h3,h4{
                     position: absolute;
                     display: none;
                     top: 1rem;
-                    left: 1rem;
-                    width: 50%;
+                    // left: 1rem;
+                    left: 0;
+                    width: 55%;
                     height: 50px;
                     -webkit-transform: translateY(50px);
                     -ms-transform: translateY(50px);
@@ -87,15 +93,15 @@ strong,h3,h4{
                 .content{
                     top: 5rem;
                     right: 0;
-                    width: 40%;
+                    width: 45%;
                     position: absolute;
                     color: white;
                     .hour{
                         text-transform: uppercase;
                         color: rgba(255, 255, 255, 0.4);
                         margin-bottom: 0;
-                        font-size: 1.8rem;
-                        line-height: 3rem;
+                        font-size: 2.5rem;
+                        line-height: 4rem;
                         font-weight: 700;
                     }
                     .degrees{
@@ -104,30 +110,33 @@ strong,h3,h4{
                         color: white;
                         line-height: 5rem;
                         #temperature{
-                            font-size: 4rem;
+                            font-size: 5rem;
                         }
                     }
                     .data{
-                        font-size: 1.1rem;
-                        line-height: 1.5rem;
+                        font-size: 1.6rem;
+                        line-height: 2.2rem;
                     }
                     .weather_status{
-                        font-size: 1.8rem;
-                        line-height: 2.5rem;
-                        margin: .5rem 0;
+                        font-size: 2.2rem;
+                        line-height: 3.2rem;
+                        margin: .6rem 0;
                     }
                 }
             }
         
             //实时天气背景图
             .good{
+                background-image: linear-gradient(top, rgb(13, 104, 188), rgb(114, 173, 224));
                 background-image: -webkit-linear-gradient(top, rgb(13, 104, 188), rgb(114, 173, 224));
                 background-image: -moz-linear-gradient(top, rgb(161, 202, 240), rgb(114, 173, 224));
-        
+                background-image: -o-linear-gradient(top, rgb(161, 202, 240), rgb(114, 173, 224));
             }
             .bad{
+                background-image: linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
                 background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
                 background-image: -moz-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
+                background-image: -o-linear-gradient(top, rgb(161, 202, 240), rgb(114, 173, 224));
             }
             //天气动画--晴
             .sunny{
@@ -139,7 +148,7 @@ strong,h3,h4{
                     // top: 0;
                     top: 1rem;
                     // transform: translateX(-50%);
-                    font-size: 10rem;
+                    font-size: 15rem;
                     // color: #d89864;
                     color: #ffb948;
                     -webkit-animation-name: rotate;
@@ -162,7 +171,7 @@ strong,h3,h4{
                     // top: 0;
                     top: 1.8rem;
                     // transform: translateX(-50%);
-                    font-size: 5rem;
+                    font-size: 8rem;
                     color: #d89864;
                     -webkit-animation-name: rotate;
                     animation-name: rotate;
@@ -179,7 +188,7 @@ strong,h3,h4{
                     right: 10%;
                     // top: -1rem;
                     top: 1rem;
-                    font-size: 10rem;
+                    font-size: 15rem;
                     // color: #9c9387;
                     color: #ccc;
                 }
@@ -190,9 +199,9 @@ strong,h3,h4{
                     transform: skewX(-20deg);
                     // left: 42%;
                     right: 10%;
-                    margin-right: 4rem;
+                    margin-right: 5rem;
                     // top: 100px;
-                    top: 9rem;
+                    top: 10rem;
                     z-index: -1;
                     -webkit-animation-name: sprinkle;
                     animation-name: sprinkle;
@@ -226,7 +235,7 @@ strong,h3,h4{
                     right: 10%;
                     // top: -1rem;
                     top: 1rem;
-                    font-size: 10rem;
+                    font-size: 15rem;
                     // color: #9c9387;
                     color: #999;
                 }
@@ -237,7 +246,7 @@ strong,h3,h4{
                     transform: skewX(-20deg);
                     // left: 42%;
                     right: 10%;
-                    margin-right: 2rem;
+                    margin-right: 3rem;
                     // top: 100px;
                     top: 9rem;
                     z-index: -1;
@@ -274,7 +283,7 @@ strong,h3,h4{
                     right: 10%;
                     // top: -1rem;
                     top: 0;
-                    font-size: 12rem;
+                    font-size: 15rem;
                     // color: #9c9387;
                     color: #ccc;
                 }
@@ -284,7 +293,7 @@ strong,h3,h4{
                     right: 10%;
                     // top: 110px;
                     top: 10rem;
-                    margin-right: 4rem;
+                    margin-right: 5rem;
                     z-index: -1;
                     -webkit-animation: snowflakes 2s linear infinite;
                     animation: snowflakes 2s linear infinite;
@@ -312,7 +321,7 @@ strong,h3,h4{
                     right: 10%;
                     // top: -1rem;
                     top: 0;
-                    font-size: 12rem;
+                    font-size: 15rem;
                     // color: #9c9387;
                     color: #999;
                 }
@@ -322,7 +331,7 @@ strong,h3,h4{
                     right: 10%;
                     // top: 110px;
                     top: 10rem;
-                    margin-right: 1rem;
+                    margin-right: 2rem;
                     z-index: -1;
                     -webkit-animation: snowflakes 2s linear infinite;
                     animation: snowflakes 2s linear infinite;
@@ -390,7 +399,7 @@ strong,h3,h4{
                     // top: 0;
                     top: 2rem;
                     transform: translateX(-50%);
-                    font-size: 5rem;
+                    font-size: 8rem;
                     color: #d89864;
                     -webkit-animation-name: rotate;
                     animation-name: rotate;
@@ -407,7 +416,7 @@ strong,h3,h4{
                     right: 10%;
                     // top: -1rem;
                     top: 1.5rem;
-                    font-size: 10rem;
+                    font-size: 15rem;
                     // color: #e3bb88;
                     color: rgba(255, 255, 255, .8);
                 }
@@ -424,19 +433,19 @@ strong,h3,h4{
                     // top: 40%;
                     top: 8rem;
                     // left: 30%;
-                    right: 25%;
+                    right: 40%;
                     background: #666;
-                    transform: translate(-50%, -50%);
+                    transform: scale(1.5) translate(-50%, -50%);
                     border-radius: 50%;
                     //利用阴影画云彩
                     box-shadow: #666 65px -15px 0 -5px, #666 25px -25px, #666 30px 10px, #666 60px 15px 0 -10px, #666 85px 5px 0 -5px;
-                    animation: cloudy 5s ease-in-out infinite;
+                    // animation: cloudy 5s ease-in-out infinite;
                 }
                 .thunder:before { //闪电
                     content: "";
                     position: absolute;
-                    top: 60px;
-                    left: 60px;
+                    top: 80px;
+                    left: 80px;
                     border-left: 0px solid transparent;
                     border-right: 8px solid transparent;
                     border-top: 38px solid yellow;
@@ -469,11 +478,17 @@ strong,h3,h4{
                     animation: rainy_rain .7s infinite linear;
                 }
             
-                @keyframes cloudy {
-                    50% {
-                        transform: translate(-50%, -30px);
-                    }
-                }
+                // @keyframes cloudy {
+                //     from{
+                //         transform: translate(-50%, -50%) scale(1.5);
+                //     }
+                //     50% {
+                //         transform: translate(-50%, -30px) scale(1.2);
+                //     }
+                //     to{
+                //         transform: translate(-50%, -50%) scale(1.5);
+                //     }
+                // }
                 // @keyframes cloudy_shadow { //底部云彩阴影动画
                 //     50% {
                 //         transform: translate(-50%, 0) scale(0.8);
@@ -537,9 +552,11 @@ strong,h3,h4{
                     // top: 30%;
                     top: 6rem;
                     // left: 50%;
-                    right: 25%;
+                    // right: 25%;
+                    right: 40%;
                     background: #CCCCCC;
                     border-radius: 50%;
+                    transform: scale(1.5);
                 }
         
                 .overcast:before {
@@ -553,10 +570,10 @@ strong,h3,h4{
                     top: 30px;
                     // top: 90px;
                     left: -40px;
-                    background: #CCC;
+                    background: #bbb;
                     transform: translate(-50%, -50%);
                     border-radius: 50%;
-                    box-shadow: #CCC 65px -15px 0 -5px, #CCC 25px -25px, #CCC 30px 10px, #CCC 60px 15px 0 -10px, #CCC 85px 5px 0 -5px;
+                    box-shadow: #bbb 65px -15px 0 -5px, #bbb 25px -25px, #bbb 30px 10px, #bbb 60px 15px 0 -10px, #bbb 85px 5px 0 -5px;
                     animation: cloudy 5s ease-in-out infinite;
                 }
         
@@ -593,6 +610,16 @@ strong,h3,h4{
                     }
                 }
             }
+            .common_img{
+                .weatherImg{
+                    position: absolute;
+                    top: 2rem;
+                    right: 10%;
+                    >img{
+                        width: 15rem;
+                    }
+                }
+            }
             .common{
                 .weather_icon{
                     position: absolute;
@@ -603,11 +630,14 @@ strong,h3,h4{
         
                 }
             }
+            .active{
+                display: block;
+            }
         
         }
         .weather_bad{
-            // background: rgba(255,255,255,0.1);
-            background: rgba(29,51,121,.5);
+            // background: rgba(29,51,121,.5);
+            background-color: rgba(2, 23, 79, .6);
             height: 36%;
             color: #fff;
             overflow: hidden;
@@ -619,7 +649,8 @@ strong,h3,h4{
                 color: rgba(255,255,255,.8);
                 text-align: left;
                 // width: 300px;
-                font-size: 16px;
+                // font-size: 16px;
+                font-size: 1.8rem;
             }
             .item_list{
                 padding: 12px 20px;
@@ -627,24 +658,25 @@ strong,h3,h4{
             .item{
                 border-bottom: 1px solid #ddd;
                 border-bottom: 1px solid rgba(255,255,255,0.2);
-                line-height: 32px;
-                height: 32px;
-                color: #fff;
+                line-height: 40px;
+                height: 40px;
                 cursor: pointer;
-                // border-bottom: 1px solid rgba(67,104,199,.2);
-                color: #3690ff;
+                font-size: 1.6rem;
+                color: #02d9fa;
                 .name{
                     display: inline-block;
-                    width: 180px;
+                    min-width: 250px;
                     color: rgba(255,255,255,.7);
-                    padding: 0 24px;
+                    padding: 0 20px;
+                    color: #fff;
+                    // color: #708acc;
                 }
             }
         }
     }
     .statistics{
         float: left;
-        width: 40%;
+        width: 45%;
         // padding-left:50px; 
         height: 100%;
         // background-color: rgba(41,52,65,1);
@@ -661,7 +693,7 @@ strong,h3,h4{
                 transform: translateX(-50%);
                 height: 100%;
                 width: 80%;
-                padding-top: 20px;
+                padding-top: 45px;
             }
         }
         .statistics_report{
@@ -680,7 +712,7 @@ strong,h3,h4{
             top: 20px;
             // top: 0;
             left: 20px;
-            font-size: 18px;
+            font-size: 1.8rem;
             color: #fff;
             z-index: 99;
         }

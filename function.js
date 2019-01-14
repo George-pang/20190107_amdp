@@ -32,6 +32,7 @@
      //      i < 10 ? num = "0" + i : num = i;
      //      return num;
      //  }
+     window.external.webMapLoadComplete();
  });
 
 
@@ -177,7 +178,7 @@
  //function：控制实时天气区域good、bad预定类背景切换
  function changeBgImg(weatherDesc) {
      if (weatherDesc != "Null") {
-         if (weatherDesc.indexOf("晴") != -1 || weatherDesc == "多雲" || weatherDesc == "多云") {
+         if (weatherDesc.indexOf("晴") != -1 || weatherDesc == "多雲" || weatherDesc == "多云"||weatherDesc=="乾燥") {
              $(".weather_info").removeClass("bad").addClass("good");
          } else {
              $(".weather_info").removeClass("good").addClass("bad");
@@ -187,15 +188,15 @@
  }
  //function：根据天气描述值显示对应的天气动画或icon---待拓展（是否每一个都显示对应的ICON或动画）
  function changeWeatherIcon(weatherDesc) {
-    if (weatherDesc == "天晴" || weatherDesc.indexOf("晴") != -1) {
+    if (weatherDesc == "天晴" || weatherDesc.indexOf("晴") != -1||weatherDesc=="乾燥") {
         $(".sunny").addClass("active").siblings(".icon").removeClass("active");
     } else if (weatherDesc == "多雲" || weatherDesc == "多云") {
         $(".cloudy").addClass("active").siblings(".icon").removeClass("active");
-    } else if (weatherDesc == "雨") {
+    } else if (weatherDesc == "雨" || weatherDesc == "毛毛雨" || weatherDesc == "驟雨") {
         $(".rainy").addClass("active").siblings(".icon").removeClass("active");
-    } else if (weatherDesc == "雷雨") {
+    } else if (weatherDesc == "雷雨" || weatherDesc == "雷暴") {
         $(".thundershowers").addClass("active").siblings(".icon").removeClass("active");
-    } else if (weatherDesc == "大雨" || weatherDesc.indexOf("雨") != -1) {
+    } else if (weatherDesc == "大雨" || weatherDesc == "大驟雨") {
         $(".heavy_rain").addClass("active").siblings(".icon").removeClass("active");
     } else if (weatherDesc == "雪") {
         $(".snow").addClass("active").siblings(".icon").removeClass("active");
@@ -203,9 +204,24 @@
         $(".heavy_snow").addClass("active").siblings(".icon").removeClass("active");
     } else if (weatherDesc == "密雲" || weatherDesc == "密云") {
         $(".overcastDay").addClass("active").siblings(".icon").removeClass("active");
-    } else {
-        $(".weather_info .common").addClass(".active").siblings(".icon").removeClass("active");
-        $(".weather_info .common").find("i").html("&#xe694;"); //待拓展--对应不同icon 使用switch语句
+    } else if (weatherDesc == "浮塵") {
+        $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+        $(".weather_info .common_img").find("i").append('<img src="images/haze.png">');
+    } else if (weatherDesc == "霧" || weatherDesc == "煙霞" || weatherDesc == "薄霧" || weatherDesc == "煙幕") {
+        $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+        $(".weather_info .common_img").find("i").append('<img src="images/fog.png">');
+    } else if (weatherDesc == "冰雹") {
+        $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+        $(".weather_info .common_img").find("i").append('<img src="images/hail.png">');
+    } else if (weatherDesc == "大風") {
+        $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+        $(".weather_info .common_img").find("i").append('<img src="images/gale.png">');
+    } else if (weatherDesc == "水龍捲" || weatherDesc.indexOf("暴") != -1) {
+        $(".weather_info .common_img").addClass("active").siblings(".icon").removeClass("active");
+        $(".weather_info .common_img").find("i").append('<img src="images/sand_storm.png">');
+    } else {    //潮湿
+        $(".weather_info .common").addClass("active").siblings(".icon").removeClass("active");
+        $(".weather_info .common").find("i").html("&#xe601;"); //待拓展--对应不同icon 使用switch语句
     }
 }
  //function：星期日对应英文转中文繁体
@@ -273,171 +289,193 @@
      var myPhoneChart = echarts.init(document.getElementById('phoneChart'), 'vintage');
      //配置项
      var phoneChartOption = {
-         // title: {
-         //     show: true,
-         //     text: '當前電話排隊統計'
-         // },
-         backgroundColor: "rgba(91,92,110,1)",
-         tooltip: {
-             formatter: "{a} <br/>{b} : {c}"
-         },
-         series: [{
-             name: '電話排隊',
-             type: 'gauge',
-             // min:0,
-             max: 20, //仪表盘最大刻度
-             //仪表盘详情，用于显示数据。
-             detail: {
-                 formatter: '{value}'
-             },
-             data: [{
-                 value: 10,
-                 name: '當前電話排隊數',
-                 textStyle: {
-                     fontSize: 12,
-                 },
-             }],
-             //仪表盘轴线相关配置
-             axisLine: {
-                 show: true,
-                 lineStyle: {
-                     width: 20,
-                     shadowBlur: 0,
-                     // opacity:.8,
-                     //仪表盘的轴线可以被分成不同颜色的多段。每段的结束位置和颜色可以通过一个数组来表示。
-                     // color: [
-                     //     [0.3, '#67e0e3'],
-                     //     [0.7, '#37a2da'],
-                     //     [1, '#fd666d']
-                     // ]
-                 }
-             },
-             //分隔线样式
-             splitLine: {
-                 length: 20,
-             },
-             pointer: {
-                 length: '60%',
-             },
-             title: { // 仪表盘标题。
-                 show: true, // 是否显示标题,默认 true。
-                 offsetCenter: [0, "80%"], //相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
-                 fontSize: 16, // 文字的字体大小,默认 15。
-                 color: "#fff", //仪表盘标题字体颜色
-             },
-         }]
-     };
+        // title: {
+        //     show: true,
+        //     text: '當前電話排隊統計'
+        // },
+        backgroundColor: "rgba(91,92,110,1)",
+        tooltip: {
+            formatter: "{a} <br/>{b} : {c}"
+        },
+        series: [{
+            name: '電話排隊',
+            type: 'gauge',
+            radius:'85%',//仪表盘半径
+            // min:0,
+            max: 20, //仪表盘最大刻度
+            //仪表盘详情，用于显示数据。
+            detail: {
+                formatter: '{value}',
+                fontSize:32,
+            },
+            data: [{
+                value: 10,
+                name: '當前電話排隊數',
+                textStyle: {
+                    fontSize: 28,
+                },
+            }],
+            //仪表盘轴线相关配置
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    width: 20,
+                    shadowBlur: 0,
+                    // opacity:.8,
+                    // 仪表盘的轴线可以被分成不同颜色的多段。每段的结束位置和颜色可以通过一个数组来表示。
+                    color: [
+                        [0.3, '#61a0a8'],
+                        [0.7, '#919e8b'],
+                        [1, '#d7ab82']
+                    ]
+                }
+            },
+            // 刻度标签-刻度值
+            axisLabel:{
+                fontSize:20,
+            },
+            //分隔线样式
+            splitLine: {
+                length: 20,
+            },
+            pointer: {
+                length: '50%',
+            },
+            title: { // 仪表盘标题。
+                show: true, // 是否显示标题,默认 true。
+                offsetCenter: [0, "95%"], //相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
+                fontSize: 24, // 文字的字体大小,默认 15。
+                color: "#fff", //仪表盘标题字体颜色
+            },
+            // itemStyle: {			// 仪表盘指针样式。
+            // 	color: "auto",			// 指针颜色，默认(auto)取数值所在的区间的颜色
+            // 	opacity: 1,				// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
+            // 	borderWidth: 0,			// 描边线宽,默认 0。为 0 时无描边。
+            // 	borderType: "solid",	// 柱条的描边类型，默认为实线，支持 'solid', 'dashed', 'dotted'。
+            // 	borderColor: "#000",	// 图形的描边颜色,默认 "#000"。支持的颜色格式同 color，不支持回调函数。
+            // 	shadowBlur: 10,			// (发光效果)图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。 
+            //     shadowColor: "#fff",	// 阴影颜色。支持的格式同color。
+            // },
+        }]
+    };
      var myReportChart = echarts.init(document.getElementById('reportChart'), 'vintage');
-     var reportChartOption = {
-         // title: {
-         //     text: "案件接報統計"
-         // },
-         backgroundColor: "rgba(41,52,65,1)",
-         tooltip: {
-             trigger: 'item',
-             formatter: "{a} <br/>{b}: {c} ({d}%)",
-         },
-         legend: {
-             orient: 'vertical',
-             x: 'right',
-             data: ['已結束案件', '待處理案件', '處理中案件'],
-             textStyle: {
-                 color: "#fff",
-             }
-         },
-         series: [{
-                 name: '接報統計',
-                 type: 'pie',
-                 // selectedMode: 'single',
-                 radius: [0, '50%'],
-                 label: {
-                     normal: {
-                         position: 'inside',
-                         formatter: '{b}：{c}\n\n{d}%',
-                         // rich: {
-                         //     b: {
-                         //         color:'#fff',
-                         //         // fontSize: 16,
-                         //         // lineHeight: 32,
-                         //     },
-                         //     c: {
-                         //         color:'#fff',
-                         //         fontSize: 14,
-                         //     }
-                         // }
-                     }
-                 },
-                 labelLine: {
-                     normal: {
-                         show: false
-                     }
-                 },
-                 data: [{
-                         value: 800,
-                         name: '實際接報',
-                         // selected: true
-                     },
-                     {
-                         value: 400,
-                         name: '無效接報'
-                     },
-                 ]
-             },
-             {
-                 name: '實際接報統計',
-                 type: 'pie',
-                 radius: ['55%', '70%'],
-                 label: {
-                     normal: {
-                         padding: 5,
-                         position: 'outside',
-                         align: 'right',
-                         formatter: '{b|{b}：}\n{c}  {per|{d}%}',
-                         backgroundColor: '#eee',
-                         borderColor: '#aaa',
-                         borderWidth: 1,
-                         borderRadius: 4,
-                         // position: ['50%', '50%'],
-                         rich: {
-                             b: {
-                                 fontSize: 16,
-                                 lineHeight: 32,
-                             },
-                             per: {
-                                 color: '#eee',
-                                 backgroundColor: '#334455',
-                                 padding: [2, 4],
-                                 borderRadius: 2
-                             }
-                         }
-                     }
-                 },
-                 //标签的视觉引导线样式，在 label position 设置为'outside'的时候会显示视觉引导线。
-                 labelLine: {
-                     show: true,
-                     length: 20,
-                     length2: 10,
-                     // smooth:true,//平滑曲线
-                 },
-                 data: [{
-                         value: 310,
-                         name: '待處理案件'
-                     },
-                     {
-                         value: 234,
-                         name: '處理中案件'
-                     },
-                     {
-                         value: 335,
-                         name: '已結束案件'
-                     },
-                 ]
-             }
-         ]
-     };
+     var reportChartOption  = {
+        // title: {
+        //     text: "案件接報統計"
+        // },
+        backgroundColor: "rgba(41,52,65,1)",
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        // legend: {
+        //     orient: 'vertical',
+        //     x: 'right',
+        //     data: ['已結束案件', '待處理案件', '處理中案件'],
+        //     textStyle: {
+        //         color: "#fff",
+        //     }
+        // },
+        series: [{
+                name: '接報統計',
+                type: 'pie',
+                // selectedMode: 'single',
+                radius: [0, '50%'],
+                label: {//饼图图形上的文本标签，可用于说明图形的一些数据信息
+                    normal: {
+                        position: 'inside',
+                        formatter: '{b}：{c}\n\n{d}%',
+                        fontSize:18,
+                        // rich: {
+                        //     b: {
+                        //         color:'#fff',
+                        //         // fontSize: 16,
+                        //         // lineHeight: 32,
+                        //     },
+                        //     c: {
+                        //         color:'#fff',
+                        //         fontSize: 14,
+                        //     }
+                        // }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [{
+                        value: 800,
+                        name: '實際接報',
+                        // selected: true
+                    },
+                    {
+                        value: 400,
+                        name: '無效接報'
+                    },
+                ]
+            },
+            {
+                name: '實際接報統計',
+                type: 'pie',
+                radius: ['60%', '70%'],
+                label: {
+                    normal: {
+                        padding: 5,
+                        position: 'outside',
+                        align: 'right',
+                        formatter: '{b|{b}：}\n{c}  {per|{d}%}',
+                        backgroundColor:'rgba(255,255,255,.8)',
+                        borderColor: '#aaa',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        fontSize:18,
+                        color:'#d87c7c',
+                        // position: ['50%', '50%'],
+                        rich: {
+                            b: {
+                                fontSize: 20,
+                                lineHeight: 32,
+                                // color:'#d87c7c',
+                                color:'#d87c7c',
+                                align:"left",
+                            },
+                            per: {
+                                fontSize:18,
+                                color: '#eee',
+                                backgroundColor: '#334455',
+                                padding: [2, 4],
+                                borderRadius: 2
+                            }
+                        }
+                    }
+                },
+                //标签的视觉引导线样式，在 label position 设置为'outside'的时候会显示视觉引导线。
+                labelLine: {
+                    show: true,
+                    length: 20,
+                    length2: 10,
+                    // smooth:true,//平滑曲线
+                },
+                data: [{
+                        value: 310,
+                        name: '待處理'
+                    },
+                    {
+                        value: 234,
+                        name: '處理中'
+                    },
+                    {
+                        value: 335,
+                        name: '已結束'
+                    },
+                ]
+            }
+        ]
+    };
 
      // 接收数据，渲染电话排队图表
-     phoneChartOption.series[0].data[0].value = data.telQueue;
+     phoneChartOption.series[0].data[0].value = (data.telQueue=="null"||data.telQueue==null)?0:data.telQueue;
      myPhoneChart.setOption(phoneChartOption, true);
      // 接收数据，渲染接报统计图表
      reportChartOption.series[0].data[0].value = data.actualEvent;
