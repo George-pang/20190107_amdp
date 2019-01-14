@@ -57,7 +57,8 @@
      $("#time_now").html(year + "年" + month + "月" + day + "日\t" + weekday);
      //  $("#hour").html(hour);
      $("#temperature").html(data.temperature);
-     $("#temperatureMin").html(data.temperatureMin);
+     var temperatureMin=(data.temperatureMin==null||data.temperatureMin=="null")?"暫無":data.temperatureMin;
+     $("#temperatureMin").html(temperatureMin+"℃");
      $("#weather_status").html(weatherDesc);
      $("#wind").html(data.windSpeed + "km/hr\t" + data.windDescription);
      $("#humidity").html(data.humidity + "%");
